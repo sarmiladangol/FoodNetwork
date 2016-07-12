@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08E5877601C4A3106E4CEA7F /* libPods-FoodNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8623954BF7B9362C6F16B6C5 /* libPods-FoodNetwork.a */; };
+		C61881C31D358D3300F4CD86 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = C61881C21D358D3300F4CD86 /* UserProfile.m */; };
 		C63757301D341BB50082D607 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C637572F1D341BB50082D607 /* main.m */; };
 		C63757331D341BB50082D607 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757321D341BB50082D607 /* AppDelegate.m */; };
 		C63757361D341BB50082D607 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757351D341BB50082D607 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 		16AB2587C818FD143829B588 /* Pods-FoodNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodNetwork/Pods-FoodNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		567DB2D13B3AC928576E9F09 /* Pods-FoodNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodNetwork/Pods-FoodNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		8623954BF7B9362C6F16B6C5 /* libPods-FoodNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61881C11D358D3300F4CD86 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		C61881C21D358D3300F4CD86 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		C637572B1D341BB50082D607 /* FoodNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637572F1D341BB50082D607 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C63757311D341BB50082D607 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 			children = (
 				C63757821D353DCF0082D607 /* Restaurant.h */,
 				C63757831D353DCF0082D607 /* Restaurant.m */,
+				C61881C11D358D3300F4CD86 /* UserProfile.h */,
+				C61881C21D358D3300F4CD86 /* UserProfile.m */,
 			);
 			name = Models;
 			path = ..;
@@ -277,6 +282,7 @@
 			files = (
 				C63757361D341BB50082D607 /* ViewController.m in Sources */,
 				C63757841D353DCF0082D607 /* Restaurant.m in Sources */,
+				C61881C31D358D3300F4CD86 /* UserProfile.m in Sources */,
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C63757881D3557E70082D607 /* FoodNetworkDetailsViewController.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "loginViewController.h"
-
+@import Firebase;
 @interface loginViewController ()
 
 @end
@@ -22,6 +22,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)loginBtnPressed:(id)sender {
+    NSLog(@"LOGIN PRESSED");
 }
 
 /*
