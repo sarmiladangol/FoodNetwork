@@ -7,39 +7,79 @@
 //
 
 #import "signupViewController.h"
+#import "UserProfile.h"
 @import Firebase;
 @import FirebaseAuth;
 
 @interface signupViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *emailSignUp;
+@property (weak, nonatomic) IBOutlet UITextField *usernameSignUp;
+@property (weak, nonatomic) IBOutlet UITextField *passwordSignUp;
+@property (weak, nonatomic) IBOutlet UITextField *retypePasswordSignUp;
+@property (weak, nonatomic) IBOutlet UILabel *invalidEntry;
 
 @end
 
 @implementation signupViewController
-NSString *email;
-NSString *password;
+NSString *newPassword;
+NSString *retypeNewPassword;
 
 - (void)viewDidLoad {
+    _invalidEntry.hidden = true;
     [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (IBAction)signupBtnPressed:(id)sender {
     NSLog(@"SIGNUP PRESSED");
-    [[FIRAuth auth]
-     createUserWithEmail:email
-     password:password
-     completion:^(FIRUser *_Nullable user,
-                  NSError *_Nullable error) {
-    [self createUserProfileOnFirebase];
-     }];
+    [self signUpUserToFirebase];
 }
 
--(void)createUserProfileOnFirebase{
-    NSLog(@"CREAT USER IN FIREBASE");
+-(void)signUpUserToFirebase{
+    [self removeSpaceFromPassword];
+    [self validateInputs];
 }
+
+-(void)removeSpaceFromPassword{
+    newPassword = [_passwordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    retypeNewPassword = [_passwordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
+-(void)validateInputs{
+    if(![newPassword isEqualToString:retypeNewPassword]){
+        _invalidEntry.hidden = false;
+        _invalidEntry.text=@"Unmatched password";
+    }
+    else{
+        [[FIRAuth auth]
+         createUserWithEmail:_emailSignUp.text
+         password:newPassword
+         completion:^(FIRUser *_Nullable user,
+                      NSError *_Nullable error) {
+             
+             [self createUserProfileOnFirebase];
+            
+         }];
+    }
+}
+-(void)createUserProfileOnFirebase{
+    NSLog(@"CREATE USER IN FIREBASE");
+
+//    if ([FIRAuth auth].currentUser != nil) {
+//        
+//        FIRDatabaseReference *currentUserProfileRef = [[[[FIRDatabase database]reference]child:@"userprofile"]childByAutoId];
+//        UserProfile *newUserProfile = [[UserProfile alloc]initUserProfileWithEmail:_emailSignUp.text username:_usernameSignUp.text uid:[FIRAuth auth].currentUser.uid];
+//        
+//        newUserProfile.profileImageDownloadURL = @"https://firebasestorage.googleapis.com/v0/b/wire-e0cde.appspot.com/o/default_user.png?alt=media&token=d351d796-3f49-4f8f-8ca8-7d)1cd17f510";
+//        
+//        NSDictionary *newUserProfileDict = @{@"email": newUserProfile.email, @"username": newUserProfile.username, @"userId": newUserProfile.uid, @"profilePhotoDownloadURL": newUserProfile.profileImageDownloadURL};
+//        
+//        [currentUserProfileRef setValue:newUserProfileDict];
+//    }
+}
+
 /*
 #pragma mark - Navigation
 
