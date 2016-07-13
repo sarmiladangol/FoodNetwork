@@ -11,11 +11,12 @@
 
 @interface UserProfile : NSObject
 @property (nonatomic,strong) NSString *email;
+@property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *uid;
 @property (nonatomic, strong)NSMutableArray *userProfileArray;
 
--(instancetype)initUserProfileWithEmail:(NSString *)email password:(NSString *)password uid:(NSString *)uid;
+-(instancetype)initUserProfileWithEmail:(NSString *)email username:(NSString *)username password:(NSString *)password uid:(NSString *)uid;
 
 
 @end

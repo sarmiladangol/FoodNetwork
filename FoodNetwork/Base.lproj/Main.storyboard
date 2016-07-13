@@ -54,7 +54,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginBtnPressed:" destination="1YG-fh-rTt" eventType="touchUpInside" id="b9p-F6-0R9"/>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="Ajj-Oo-xvf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,7 +117,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signupBtnPressed:" destination="RO0-o2-aCz" eventType="touchUpInside" id="54k-Wl-rKP"/>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="Rmc-y6-CUe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,29 +148,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="addressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daf-gG-eTs">
-                                <rect key="frame" x="109" y="272" width="103" height="21"/>
+                                <rect key="frame" x="109" y="133" width="103" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="phoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0A-Bh-f4t">
-                                <rect key="frame" x="105" y="307" width="110" height="21"/>
+                                <rect key="frame" x="105" y="168" width="110" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9R-vU-nqR">
-                                <rect key="frame" x="81" y="389" width="114" height="30"/>
+                                <rect key="frame" x="81" y="205" width="114" height="30"/>
                                 <state key="normal" title="GetCurrentPlace"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-0i-PAF">
-                                <rect key="frame" x="118" y="235" width="84" height="21"/>
+                                <rect key="frame" x="118" y="96" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V54-0S-pXn">
-                                <rect key="frame" x="66" y="465" width="144" height="30"/>
+                                <rect key="frame" x="66" y="249" width="144" height="30"/>
                                 <state key="normal" title="Search FoodNetwork"/>
                                 <connections>
                                     <action selector="pickPlace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DJA-SP-7Vh"/>
@@ -190,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="453"/>
+            <point key="canvasLocation" x="699" y="375"/>
         </scene>
         <!--Food Network Details View Controller-->
         <scene sceneID="Ybk-hn-22s">
@@ -239,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-rH-Lzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="453"/>
+            <point key="canvasLocation" x="1081" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRS-p5-5g1">
@@ -257,7 +255,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMb-o6-uoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508" y="453"/>
+            <point key="canvasLocation" x="307" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hSV-Pq-ygJ">
@@ -278,7 +276,4 @@
             <point key="canvasLocation" x="306" y="-301"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Rmc-y6-CUe"/>
-    </inferredMetricsTieBreakers>
 </document>

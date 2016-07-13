@@ -33,7 +33,6 @@ NSString *retypeNewPassword;
     [super didReceiveMemoryWarning];
 }
 - (IBAction)signupBtnPressed:(id)sender {
-    NSLog(@"SIGNUP PRESSED");
     [self signUpUserToFirebase];
 }
 
@@ -44,7 +43,7 @@ NSString *retypeNewPassword;
 
 -(void)removeSpaceFromPassword{
     newPassword = [_passwordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    retypeNewPassword = [_passwordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    retypeNewPassword = [_retypePasswordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
 -(void)validateInputs{
@@ -52,6 +51,12 @@ NSString *retypeNewPassword;
         _invalidEntry.hidden = false;
         _invalidEntry.text=@"Unmatched password";
     }
+    
+    if([_usernameSignUp.text isEqualToString:@" "]|| [_usernameSignUp.text isEqualToString:@""]){
+        _invalidEntry.hidden = false;
+        _invalidEntry.text = @"Invalid username";
+    }
+    
     else{
         [[FIRAuth auth]
          createUserWithEmail:_emailSignUp.text
@@ -60,24 +65,40 @@ NSString *retypeNewPassword;
                       NSError *_Nullable error) {
              
              [self createUserProfileOnFirebase];
+             
+             if(error.code == 17007){
+                 _invalidEntry.hidden = false;
+                 _invalidEntry.text = @"Email already in use";
+             }
+             else if(error.code == 17026){
+                 _invalidEntry.hidden = false;
+                 _invalidEntry.text = @"Invalid password";
+             }
+             else if(error){
+                 _invalidEntry.hidden = false;
+                 _invalidEntry.text=@"Invalid email or password";
+             }
+             
+//             if (error) {
+//                 NSLog(@"SIGN UP ERROR::::: %@", error.description);
+//             }
             
-         }];
+         }]
+        ;
     }
 }
 -(void)createUserProfileOnFirebase{
-    NSLog(@"CREATE USER IN FIREBASE");
 
-//    if ([FIRAuth auth].currentUser != nil) {
-//        
-//        FIRDatabaseReference *currentUserProfileRef = [[[[FIRDatabase database]reference]child:@"userprofile"]childByAutoId];
-//        UserProfile *newUserProfile = [[UserProfile alloc]initUserProfileWithEmail:_emailSignUp.text username:_usernameSignUp.text uid:[FIRAuth auth].currentUser.uid];
-//        
-//        newUserProfile.profileImageDownloadURL = @"https://firebasestorage.googleapis.com/v0/b/wire-e0cde.appspot.com/o/default_user.png?alt=media&token=d351d796-3f49-4f8f-8ca8-7d)1cd17f510";
-//        
-//        NSDictionary *newUserProfileDict = @{@"email": newUserProfile.email, @"username": newUserProfile.username, @"userId": newUserProfile.uid, @"profilePhotoDownloadURL": newUserProfile.profileImageDownloadURL};
-//        
-//        [currentUserProfileRef setValue:newUserProfileDict];
-//    }
+    if ([FIRAuth auth].currentUser != nil) {
+        
+        FIRDatabaseReference *currentUserProfileRef = [[[[FIRDatabase database]reference]child:@"userprofile"]childByAutoId];
+        UserProfile *newUserProfile = [[UserProfile alloc]initUserProfileWithEmail:_emailSignUp.text username:_usernameSignUp.text password:_passwordSignUp.text uid:[FIRAuth auth].currentUser.uid];
+        
+        
+        NSDictionary *newUserProfileDict = @{@"email": newUserProfile.email, @"username": newUserProfile.username, @"userId": newUserProfile.uid};
+        
+        [currentUserProfileRef setValue:newUserProfileDict];
+    }
 }
 
 /*

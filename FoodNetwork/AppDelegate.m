@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 @import GoogleMaps;
-@import UIKit;
 @import Firebase;
+@import FirebaseAuth;
 
 @interface AppDelegate ()
 
@@ -22,6 +22,27 @@
     // Override point for customization after application launch.
    [GMSServices provideAPIKey:@"AIzaSyAkj4aVGAHbtmhyueULTbnPpAoF729oCYg"];
      [FIRApp configure];
+    
+    
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+  
+    
+//    [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *auth,
+//                                                    FIRUser *user) {
+//        
+//        if (user != nil) {
+//            
+//            // Show the Initial ChatProfileNavController"
+//            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"FoodNetworkListNavController"];
+//        } else {
+//            // Login
+//            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
+//        }
+//        [self.window makeKeyAndVisible];
+//    }];
+    
     return YES;
 }
 

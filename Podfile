@@ -5,4 +5,5 @@ target "FoodNetwork" do
 pod 'GoogleMaps'
 pod ‘Firebase’
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 end
