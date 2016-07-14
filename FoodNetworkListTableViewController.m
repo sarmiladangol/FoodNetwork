@@ -2,14 +2,19 @@
 //  FoodNetworkListTableViewController.m
 //  FoodNetwork
 //
-//  Created by Sarmila on 7/13/16.
+//  Created by Sarmila on 7/14/16.
 //  Copyright © 2016 SarmilaDangol. All rights reserved.
 //
 
 #import "FoodNetworkListTableViewController.h"
+@import GoogleMaps;
 
 @interface FoodNetworkListTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
 
+@property (strong, nonatomic) NSMutableArray *restaurantArray;
+@property (strong, nonatomic) NSMutableArray *searchRestaurantArray;
+@property (weak, nonatomic) IBOutlet UITextField *searchRestaurantTextField;
 @end
 
 @implementation FoodNetworkListTableViewController
@@ -32,24 +37,27 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    if ([_searchRestaurantArray count] == 0) {
+        return [_restaurantArray count];
+    }
+    else{
+    return [_searchRestaurantArray count];
+    }
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"restaurantCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

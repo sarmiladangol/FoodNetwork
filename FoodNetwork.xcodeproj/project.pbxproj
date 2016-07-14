@@ -22,7 +22,7 @@
 		C63757841D353DCF0082D607 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757831D353DCF0082D607 /* Restaurant.m */; };
 		C63757881D3557E70082D607 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757871D3557E70082D607 /* FoodNetworkDetailsViewController.m */; };
 		C637578A1D3572370082D607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C63757891D3572370082D607 /* GoogleService-Info.plist */; };
-		C6F6AB151D36DB5800C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB141D36DB5800C410C2 /* FoodNetworkListTableViewController.m */; };
+		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +53,8 @@
 		C63757861D3557E70082D607 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
 		C63757871D3557E70082D607 /* FoodNetworkDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkDetailsViewController.m; sourceTree = "<group>"; };
 		C63757891D3572370082D607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C6F6AB131D36DB5800C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
-		C6F6AB141D36DB5800C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
+		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
+		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +153,8 @@
 				C637575E1D3435F70082D607 /* loginViewController.m */,
 				C637575B1D3435E80082D607 /* signupViewController.m */,
 				C63757481D34211F0082D607 /* FoodNetworkListViewController.m */,
-				C6F6AB131D36DB5800C410C2 /* FoodNetworkListTableViewController.h */,
-				C6F6AB141D36DB5800C410C2 /* FoodNetworkListTableViewController.m */,
+				C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */,
+				C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */,
 				C63757861D3557E70082D607 /* FoodNetworkDetailsViewController.h */,
 				C63757871D3557E70082D607 /* FoodNetworkDetailsViewController.m */,
 			);
@@ -291,7 +291,7 @@
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C63757881D3557E70082D607 /* FoodNetworkDetailsViewController.m in Sources */,
-				C6F6AB151D36DB5800C410C2 /* FoodNetworkListTableViewController.m in Sources */,
+				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,
 				C637575C1D3435E80082D607 /* signupViewController.m in Sources */,
 				C637575F1D3435F70082D607 /* loginViewController.m in Sources */,
 				C63757491D34211F0082D607 /* FoodNetworkListViewController.m in Sources */,

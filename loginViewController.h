@@ -9,5 +9,8 @@
 #import "ViewController.h"
 
 @interface loginViewController : ViewController
+@property (weak, nonatomic) IBOutlet UITextField *emailLogin;
+@property (weak, nonatomic) IBOutlet UITextField *passwordLogin;
+@property (weak, nonatomic) IBOutlet UILabel *invalidLogin;
 
 @end

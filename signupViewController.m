@@ -32,6 +32,7 @@ NSString *retypeNewPassword;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 - (IBAction)signupBtnPressed:(id)sender {
     [self signUpUserToFirebase];
 }
@@ -42,29 +43,30 @@ NSString *retypeNewPassword;
 }
 
 -(void)removeSpaceFromPassword{
+    
     newPassword = [_passwordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     retypeNewPassword = [_retypePasswordSignUp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
 }
 
 -(void)validateInputs{
+    
     if(![newPassword isEqualToString:retypeNewPassword]){
         _invalidEntry.hidden = false;
         _invalidEntry.text=@"Unmatched password";
     }
     
-    if([_usernameSignUp.text isEqualToString:@" "]|| [_usernameSignUp.text isEqualToString:@""]){
+    else if([_usernameSignUp.text isEqualToString:@" "]|| [_usernameSignUp.text isEqualToString:@""]){
         _invalidEntry.hidden = false;
         _invalidEntry.text = @"Invalid username";
     }
     
-    else{
+    else {
         [[FIRAuth auth]
          createUserWithEmail:_emailSignUp.text
          password:newPassword
          completion:^(FIRUser *_Nullable user,
                       NSError *_Nullable error) {
-             
-             [self createUserProfileOnFirebase];
              
              if(error.code == 17007){
                  _invalidEntry.hidden = false;
@@ -78,22 +80,20 @@ NSString *retypeNewPassword;
                  _invalidEntry.hidden = false;
                  _invalidEntry.text=@"Invalid email or password";
              }
-             
-//             if (error) {
-//                 NSLog(@"SIGN UP ERROR::::: %@", error.description);
-//             }
+             else{
+                 _invalidEntry.hidden=true;
+                 [self createUserProfileOnFirebase];
+             }
             
-         }]
-        ;
+         }] ;
     }
 }
+
 -(void)createUserProfileOnFirebase{
 
     if ([FIRAuth auth].currentUser != nil) {
-        
         FIRDatabaseReference *currentUserProfileRef = [[[[FIRDatabase database]reference]child:@"userprofile"]childByAutoId];
         UserProfile *newUserProfile = [[UserProfile alloc]initUserProfileWithEmail:_emailSignUp.text username:_usernameSignUp.text password:_passwordSignUp.text uid:[FIRAuth auth].currentUser.uid];
-        
         
         NSDictionary *newUserProfileDict = @{@"email": newUserProfile.email, @"username": newUserProfile.username, @"userId": newUserProfile.uid};
         

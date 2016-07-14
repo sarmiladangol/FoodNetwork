@@ -10,23 +10,40 @@
 @import Firebase;
 
 @interface loginViewController ()
-
 @end
 
 @implementation loginViewController
 
+NSString *newLoginPassword;
+
 - (void)viewDidLoad {
+    _invalidLogin.hidden = true;
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)loginBtnPressed:(id)sender {
-    NSLog(@"LOGIN PRESSED");
+    [self removeSpaceFromLoginPassword];
+    [self validateLoginInputs];
 }
+
+-(void)removeSpaceFromLoginPassword{
+    newLoginPassword = [_passwordLogin.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
+-(void)validateLoginInputs{
+    [[FIRAuth auth]signInWithEmail:_emailLogin.text password:newLoginPassword completion:^(FIRUser *user, NSError *error){
+        if(error){
+            _invalidLogin.hidden = false;
+        }
+        
+    }];
+}
+
+
 
 /*
 #pragma mark - Navigation

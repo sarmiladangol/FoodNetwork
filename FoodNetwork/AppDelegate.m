@@ -24,24 +24,28 @@
      [FIRApp configure];
     
     
-//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-  
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
-//    [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *auth,
-//                                                    FIRUser *user) {
-//        
-//        if (user != nil) {
-//            
-//            // Show the Initial ChatProfileNavController"
-//            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"FoodNetworkListNavController"];
-//        } else {
-//            // Login
-//            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
-//        }
-//        [self.window makeKeyAndVisible];
-//    }];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *auth,
+                                                    FIRUser *user) {
+        
+        
+        if (user == nil) {
+            NSLog(@"%@", user.description);
+        }
+        
+        if (user != nil) {
+            // goto FoodNetworkList screen"
+            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"FoodNetworkListTableViewController"];
+        } else {
+            // Login screen
+            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        }
+        [self.window makeKeyAndVisible];
+    }];
     
     return YES;
 }
