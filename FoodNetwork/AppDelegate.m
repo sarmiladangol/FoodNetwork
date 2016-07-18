@@ -40,6 +40,8 @@
         if (user != nil) {
             // goto FoodNetworkList screen"
             self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"FoodNetworkListTableViewController"];
+//            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"FoodNetworkListViewController"];
+            
         } else {
             // Login screen
             self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];

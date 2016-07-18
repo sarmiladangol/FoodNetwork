@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@import GoogleMaps;
 
 @interface Restaurant : NSObject
 @property (strong, nonatomic) NSString *uid;
 @property(nonatomic, strong) NSString *restaurantName;
+@property (nonatomic) CLLocationCoordinate2D location;
 @property(nonatomic, strong) NSString *restaurantAddress;
 @property(nonatomic, strong) NSString *restaurantPhoneNumber;
 @property(nonatomic, strong) NSURL *restaurantWebsite;
 
-@property(nonatomic, strong) NSMutableArray *restaurantArray;
+//@property(nonatomic, strong) NSMutableArray *restaurantArray;
 @end

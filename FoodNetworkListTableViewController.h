@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Restaurant.h"
+@import GoogleMaps;
 
 @interface FoodNetworkListTableViewController : UIViewController <UITableViewDataSource, UITabBarDelegate>
-
+@property (nonatomic) CLLocationCoordinate2D currentLocation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
