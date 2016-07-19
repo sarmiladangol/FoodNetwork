@@ -24,6 +24,7 @@
     GMSPlacesClient *_placesClient;
     GMSPlacePicker *_placePicker;
     NSString *urlToString;
+    NSURL *url;
 }
 
 - (void)viewDidLoad {
@@ -50,16 +51,40 @@
             newRestaurant.uid = snapchat.key;
             if([child.key isEqualToString:@"restaurant_name"]){
                 newRestaurant.restaurantName = child.value;
+                NSLog(@"!!!!!!!!!!!!!!!!!!!!NAME= %@", newRestaurant.restaurantName);
             }
             if ([child.key isEqualToString:@"location"]){
                 NSArray *items = [child.value componentsSeparatedByString:@","];
+                
+              //  NSLog(@"!!!!!!!!!!!!!!!!ITEMS = %@", items.description);
                 float latitude =[[items objectAtIndex:0] floatValue];
                 float longitude =[[items objectAtIndex:1] floatValue];
                 newRestaurant.location = CLLocationCoordinate2DMake(latitude, longitude);
+                //NSLog(@"!!!!!!!!!!!!!!!!RESTAURANT LCATION=%@", newRestaurant.location);
             }
+            
+            if([child.key isEqualToString:@"restaurant_address"]){
+                newRestaurant.restaurantAddress = child.value;
+                NSLog(@"ADDRESS !!!!=%@",newRestaurant.restaurantAddress);
+            }
+            if([child.key isEqualToString:@"restaurant_phone"]){
+                newRestaurant.restaurantPhoneNumber = child.value;
+                NSLog(@"PH !!!=%@", child.value);
+            }
+            
+            if([child.key isEqualToString:@"restaurant_website"]){
+                newRestaurant.restaurantWebsite = child.value;
+                url= newRestaurant.restaurantWebsite.absoluteURL;
+                NSLog(@"WEBSITE !!!=%@", url);
+            }
+            
+            
             
         }
         [_restaurantArray addObject:newRestaurant];
+        NSLog(@"!!!COUNT= %lu", (unsigned long)_restaurantArray.count);
+        NSLog(@"!!!!!!!!!RESTAURANT ARRAY = %@", [[_restaurantArray objectAtIndex:0] restaurantName]);
+        
         [self.restaurantTableView reloadData];
     }];
 }
@@ -68,7 +93,7 @@
     _placesClient = [GMSPlacesClient sharedClient];
     [_placesClient currentPlaceWithCallback:^(GMSPlaceLikelihoodList *placeLikelihoodList, NSError *error){
     
-        NSLog(@"********PLACESCLIENT*********%@", _placesClient.description);
+     //   NSLog(@"********PLACESCLIENT*********%@", _placesClient.description);
         if (error != nil) {
             NSLog(@"Pick Place error %@", [error localizedDescription]);
             return;
@@ -80,14 +105,14 @@
             GMSPlace *place = [[[placeLikelihoodList likelihoods] firstObject] place];
             
             if (place != nil) {
-                NSLog(@"******************PLACE IS NOT NIL= %@", place.description);
+              //  NSLog(@"******************PLACE IS NOT NIL= %@", place.description);
                 _currentLocation = place.coordinate;
-                NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
+            //    NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
             else{
-                NSLog(@"****************Place is nil");
+           //     NSLog(@"****************Place is nil");
                 _currentLocation = place.coordinate;
-                NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
+             //   NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
         }
         else{

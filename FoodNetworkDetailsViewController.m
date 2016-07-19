@@ -19,10 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    _currentRestaurantNameLabel.text = _currentRestaurant.restaurantName;
+    
+       _currentRestaurantNameLabel.text = _currentRestaurant.restaurantName;
     _currentRestaurantAddressLabel.text = _currentRestaurant.restaurantAddress;
     _currentRestaurantPhoneNumberLabel.text = _currentRestaurant.restaurantPhoneNumber;
+    
     _currentRestaurantWebsiteLabel.text = _currentRestaurant.restaurantWebsite.absoluteString;
     NSLog(@"************#######!!!!!!!!NAME=%@, ADDRESS=%@, PHONE=%@, WEBSITE=%@",_currentRestaurantNameLabel.text, _currentRestaurantAddressLabel.text, _currentRestaurantPhoneNumberLabel.text, _currentRestaurantWebsiteLabel.text);
    
