@@ -12,12 +12,22 @@
 
 @end
 
-@implementation FoodNetworkDetailsViewController
+@implementation FoodNetworkDetailsViewController{
+   // GMSMapView *mapView_;
+}
+//GMSMarker *marker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    // Do any additional setup after loading the view.
+    _currentRestaurantNameLabel.text = _currentRestaurant.restaurantName;
+    _currentRestaurantAddressLabel.text = _currentRestaurant.restaurantAddress;
+    _currentRestaurantPhoneNumberLabel.text = _currentRestaurant.restaurantPhoneNumber;
+    _currentRestaurantWebsiteLabel.text = _currentRestaurant.restaurantWebsite.absoluteString;
+    NSLog(@"************#######!!!!!!!!NAME=%@, ADDRESS=%@, PHONE=%@, WEBSITE=%@",_currentRestaurantNameLabel.text, _currentRestaurantAddressLabel.text, _currentRestaurantPhoneNumberLabel.text, _currentRestaurantWebsiteLabel.text);
+   
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,16 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)getCurrentRestaurantDetails:(NSString *)restaurantName restaurantAddress:(NSString *)restaurantAddress restaurantPhoneNumber:(NSString *)restaurantPhoneNumber restaurantWebsite:(NSString *)restaurantWebsite{
-    NSLog(@"GET CURRENT RESTAURANT DETAILS");
 
-    _currentRestaurantNameLabel.text =_currentRestaurant.restaurantName;
-    _currentRestaurantAddressLabel.text = _currentRestaurant.restaurantAddress;
-    _currentRestaurantPhoneNumberLabel.text = _currentRestaurant.restaurantPhoneNumber;
-    _currentRestaurantWebsiteLabel.text = _currentRestaurant.restaurantWebsite.absoluteString;
-    
-    NSLog(@"CURRENT RESTAURANT NAME= %@\n ADDRESS=%@\n PHONE=%@ WEBSITE=%@", _currentRestaurantNameLabel.text, _currentRestaurantAddressLabel.text, _currentRestaurantPhoneNumberLabel.text, _currentRestaurantWebsiteLabel.text);
-}
 /*
 #pragma mark - Navigation
 

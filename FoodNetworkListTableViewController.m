@@ -65,40 +65,40 @@
 }
 
 -(void)getCurrentInfo{
-    NSLog(@"***************_placesClient=%@", _placesClient.description);
     _placesClient = [GMSPlacesClient sharedClient];
     [_placesClient currentPlaceWithCallback:^(GMSPlaceLikelihoodList *placeLikelihoodList, NSError *error){
-      //  NSLog(@"test");
+    
+        NSLog(@"********PLACESCLIENT*********%@", _placesClient.description);
         if (error != nil) {
             NSLog(@"Pick Place error %@", [error localizedDescription]);
             return;
         }
         else {NSLog(@"Error is nil");}
         
-       // self.nameLabel.text = @"No current place";
-        //NSLog(@"namelabel=%@",self.nameLabel.text);
-        //self.addressLabel.text = @"";
-        //NSLog(@"addresslabel=%@",self.addressLabel.text);
-        
         if (placeLikelihoodList != nil) {
+            //NSLog(@"**********placeLikelihoodList=%@", placeLikelihoodList.description);
             GMSPlace *place = [[[placeLikelihoodList likelihoods] firstObject] place];
             
             if (place != nil) {
+                NSLog(@"******************PLACE IS NOT NIL= %@", place.description);
+                _currentLocation = place.coordinate;
+                NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
             else{
-                NSLog(@"Place is nil");
+                NSLog(@"****************Place is nil");
                 _currentLocation = place.coordinate;
+                NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
         }
         else{
-            NSLog(@"placeLikelihoodList is nil");
+            NSLog(@"**********************placeLikelihoodList is nil");
         }
     }];
 }
 - (IBAction)pickPlace:(id)sender {
 
        CLLocationCoordinate2D center = CLLocationCoordinate2DMake(_locationManager.location.coordinate.latitude, _locationManager.location.coordinate.longitude);
-   // CLLocationCoordinate2D center = CLLocationCoordinate2DMake(42.3649315,-83.0751159);
+//   CLLocationCoordinate2D center = CLLocationCoordinate2DMake(42.3649315,-83.0751159);
     CLLocationCoordinate2D northEast = CLLocationCoordinate2DMake(center.latitude + 0.001,
                                                                   center.longitude + 0.001);
     CLLocationCoordinate2D southWest = CLLocationCoordinate2DMake(center.latitude - 0.001,
@@ -116,19 +116,23 @@
         
         if (place != nil) {
             Restaurant *newRestaurant = [[Restaurant alloc]init];
+            newRestaurant.location = place.coordinate;
             newRestaurant.restaurantName = place.name;
             newRestaurant.restaurantAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@"\n"];
             newRestaurant.restaurantPhoneNumber = place.phoneNumber;
             newRestaurant.restaurantWebsite = place.website;
+            
+            float newRating = [[NSString stringWithFormat:@"%.2f",place.rating]floatValue];
+            
+            newRestaurant.restaurantRating = &(newRating);
+            
             urlToString = place.website.absoluteString;
+
             
-            NSLog(@"\n NEW RESTAURANT NAME=%@\n NEW RESTAURANT PHONE NUMBER= %@\n NEW RESTAURANT WEBSITE= %@\n", newRestaurant.restaurantName, newRestaurant.restaurantPhoneNumber, newRestaurant.restaurantWebsite);
-            NSLog(@"NEW RETAURANT ADDRESS=%@",newRestaurant.restaurantAddress);
-            
-            NSString *newAdd = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@", "];
+            NSString *formattedAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@", "];
             
             NSString *locationStringToPass = [NSString stringWithFormat:@"%f, %f", newRestaurant.location.latitude, newRestaurant.location.longitude];
-            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":newAdd, @"restraurant_website":urlToString};
+            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restraurant_website":urlToString, @"restaurant_rating":[NSNumber numberWithFloat:*(newRestaurant.restaurantRating)]};
             
             NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
             

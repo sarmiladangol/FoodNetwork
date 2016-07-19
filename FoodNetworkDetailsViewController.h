@@ -20,6 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentRestaurantAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentRestaurantPhoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentRestaurantWebsiteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentRestaurantRatingLabel;
 
--(void)getCurrentRestaurantDetails:(NSString *)restaurantName restaurantAddress:(NSString *)restaurantAddress restaurantPhoneNumber:(NSString *)restaurantPhoneNumber restaurantWebsite:(NSString *)restaurantWebsite;
 @end
