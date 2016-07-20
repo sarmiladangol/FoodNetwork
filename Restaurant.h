@@ -15,8 +15,10 @@
 @property (nonatomic) CLLocationCoordinate2D location;
 @property(nonatomic, strong) NSString *restaurantAddress;
 @property(nonatomic, strong) NSString *restaurantPhoneNumber;
-@property(nonatomic, strong) NSURL *restaurantWebsite;
+@property(nonatomic, strong) NSString *restaurantWebsite;
 @property float *restaurantRating;
+
+@property (strong, nonatomic) NSString *restaurantLocation;
 
 //@property(nonatomic, strong) NSMutableArray *restaurantArray;
 @end

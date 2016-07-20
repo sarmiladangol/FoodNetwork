@@ -72,17 +72,29 @@
                 NSLog(@"PH !!!=%@", child.value);
             }
             
-            if([child.key isEqualToString:@"restaurant_website"]){
-                newRestaurant.restaurantWebsite = child.value;
-                url= newRestaurant.restaurantWebsite.absoluteURL;
-                NSLog(@"WEBSITE !!!=%@", url);
+            if([child.key isEqualToString:@"location"]){
+                newRestaurant.restaurantLocation = child.value;
+                NSLog(@"LOCATION !!!!!!!!!!!= %@", child.value);
+            }
+            
+            if ([child.key isEqualToString:@"restaurant_rating"]) {
+               // newRestaurant.restaurantRating = child.value;
+                NSLog(@"RATING= %@", child.value);
+            }
+            
+            if([child.key isEqualToString:@"restraurant_website"]){
+                //NSString *webString = child.value;
+                //NSURL *webUrl = [NSURL URLWithString:webString];
+              //  newRestaurant.restaurantWebsite = webUrl;
+               // url= newRestaurant.restaurantWebsite.absoluteURL;
+                NSLog(@"WEBSITE !!!=%@", child.value);
             }
             
             
             
         }
         [_restaurantArray addObject:newRestaurant];
-        NSLog(@"!!!COUNT= %lu", (unsigned long)_restaurantArray.count);
+        //NSLog(@"!!!COUNT= %lu", (unsigned long)_restaurantArray.count);
         NSLog(@"!!!!!!!!!RESTAURANT ARRAY = %@", [[_restaurantArray objectAtIndex:0] restaurantName]);
         
         [self.restaurantTableView reloadData];
@@ -145,19 +157,18 @@
             newRestaurant.restaurantName = place.name;
             newRestaurant.restaurantAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@"\n"];
             newRestaurant.restaurantPhoneNumber = place.phoneNumber;
-            newRestaurant.restaurantWebsite = place.website;
             
             float newRating = [[NSString stringWithFormat:@"%.2f",place.rating]floatValue];
-            
             newRestaurant.restaurantRating = &(newRating);
             
-            urlToString = place.website.absoluteString;
-
+            //urlToString = place.website.absoluteString;
+            urlToString = [place.website absoluteString];
+            newRestaurant.restaurantWebsite = urlToString;
             
             NSString *formattedAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@", "];
             
             NSString *locationStringToPass = [NSString stringWithFormat:@"%f, %f", newRestaurant.location.latitude, newRestaurant.location.longitude];
-            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restraurant_website":urlToString, @"restaurant_rating":[NSNumber numberWithFloat:*(newRestaurant.restaurantRating)]};
+            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress,@"restaurant_rating":[NSNumber numberWithFloat:*(newRestaurant.restaurantRating)], @"restaurant_website":newRestaurant.restaurantWebsite};
             
             NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
             
