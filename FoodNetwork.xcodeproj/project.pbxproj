@@ -29,6 +29,7 @@
 		C64B57C11D4154D700AE88AD /* r2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BE1D4154D700AE88AD /* r2.jpg */; };
 		C64B57C21D4154D700AE88AD /* r3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BF1D4154D700AE88AD /* r3.jpg */; };
 		C64B57C41D41558000AE88AD /* r4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57C31D41558000AE88AD /* r4.jpg */; };
+		C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64B57C91D4167B200AE88AD /* MapViewController.m */; };
 		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
 		C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,8 @@
 		C64B57BE1D4154D700AE88AD /* r2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r2.jpg; sourceTree = "<group>"; };
 		C64B57BF1D4154D700AE88AD /* r3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r3.jpg; sourceTree = "<group>"; };
 		C64B57C31D41558000AE88AD /* r4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r4.jpg; sourceTree = "<group>"; };
+		C64B57C81D4167B200AE88AD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C64B57C91D4167B200AE88AD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
 		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
 		C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */,
 				C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */,
 				C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */,
+				C64B57C81D4167B200AE88AD /* MapViewController.h */,
+				C64B57C91D4167B200AE88AD /* MapViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -324,6 +329,7 @@
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,
+				C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */,
 				C637575C1D3435E80082D607 /* signupViewController.m in Sources */,
 				C637575F1D3435F70082D607 /* loginViewController.m in Sources */,
 			);

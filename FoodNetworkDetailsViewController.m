@@ -7,20 +7,20 @@
 //
 
 #import "FoodNetworkDetailsViewController.h"
-
+//@import GoogleMaps;
 @interface FoodNetworkDetailsViewController ()
 
 @end
 
 @implementation FoodNetworkDetailsViewController{
-   // GMSMapView *mapView_;
+//    GMSMapView *mapView;
 }
 //GMSMarker *marker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-       _currentRestaurantNameLabel.text = _currentRestaurant.restaurantName;
+    _currentRestaurantNameLabel.text = _currentRestaurant.restaurantName;
     _currentRestaurantAddressLabel.text = _currentRestaurant.restaurantAddress;
     _currentRestaurantPhoneNumberLabel.text = _currentRestaurant.restaurantPhoneNumber;
     
@@ -62,7 +62,9 @@
 
 - (IBAction)openGoogleMaps:(id)sender {
     NSLog(@"************ Open Google maps ***********");
-//    NSString *latlong = _currentRestaurant.restaurantLocation;
+    
+    
+  //  NSString *latlong = _currentRestaurant.restaurantLocation;
 //    
 //    NSString *mapUrl = [NSString stringWithFormat:@"http:/maps.google.com/maps?ll=%@", [latlong stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     

@@ -13,18 +13,20 @@
 @import FirebaseDatabase;
 
 @interface FoodNetworkListTableViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
 
+@property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
 @property (strong, nonatomic) NSMutableArray *restaurantArray;
 @property (strong, nonatomic) NSMutableArray *searchRestaurantArray;
 @property (weak, nonatomic) IBOutlet UITextField *searchRestaurantTextField;
+
 @end
 
 @implementation FoodNetworkListTableViewController{
     GMSPlacesClient *_placesClient;
     GMSPlacePicker *_placePicker;
     NSString *urlToString;
-    NSURL *url;
+    NSString *currentLongitude;
+    NSString *currentLatitude;
 }
 
 - (void)viewDidLoad {
@@ -38,7 +40,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 -(void)getRestaurantFromDatabase{
     NSLog(@"**********GET RESTAURANT FROM DATABASE ********************");
@@ -54,7 +55,7 @@
             newRestaurant.uid = snapshot.key;
             if([child.key isEqualToString:@"restaurant_name"]){
                 newRestaurant.restaurantName = child.value;
-                NSLog(@"!!!!!!!!!!!!!!!!!!!!NAME= %@", newRestaurant.restaurantName);
+               // NSLog(@"!!!!!!!!!!!!!!!!!!!!NAME= %@", newRestaurant.restaurantName);
             }
             if ([child.key isEqualToString:@"location"]){
                 NSArray *items = [child.value componentsSeparatedByString:@","];
@@ -68,38 +69,34 @@
             
             if([child.key isEqualToString:@"restaurant_address"]){
                 newRestaurant.restaurantAddress = child.value;
-                NSLog(@"ADDRESS !!!!=%@",newRestaurant.restaurantAddress);
+               // NSLog(@"ADDRESS !!!!=%@",newRestaurant.restaurantAddress);
             }
             if([child.key isEqualToString:@"restaurant_phone"]){
                 newRestaurant.restaurantPhoneNumber = child.value;
-                NSLog(@"PH !!!=%@", child.value);
+               // NSLog(@"PH !!!=%@", child.value);
             }
             
             if([child.key isEqualToString:@"location"]){
                 newRestaurant.restaurantLocation = child.value;
-                NSLog(@"LOCATION !!!!!!!!!!!= %@", child.value);
+               // NSLog(@"LOCATION !!!!!!!!!!!= %@", child.value);
                // NSLog(@"Location !!!=%@", child.description);
             }
             
             if ([child.key isEqualToString:@"restaurant_rating"]) {
                 newRestaurant.restaurantRating = child.value;
-                NSLog(@"RATING $$$$= %@", child.value);
+                //NSLog(@"RATING $$$$= %@", child.value);
             }
             
             if([child.key isEqualToString:@"restaurant_website"]){
-                //NSString *webString = child.value;
-                //NSURL *webUrl = [NSURL URLWithString:webString];
-               //  newRestaurant.restaurantWebsite = webUrl;
-               // url= newRestaurant.restaurantWebsite.absoluteURL;
                 newRestaurant.restaurantWebsite = child.value;
-                NSLog(@"WEBSITE $$$$$$!!!=%@", child.value);
+              //  NSLog(@"WEBSITE $$$$$$!!!=%@", child.value);
             }
             
         }
         
         [_restaurantArray addObject:newRestaurant];
         //NSLog(@"!!!COUNT= %lu", (unsigned long)_restaurantArray.count);
-        NSLog(@"!!!!!!!!!RESTAURANT ARRAY = %@", [[_restaurantArray objectAtIndex:0] restaurantName]);
+        //NSLog(@"!!!!!!!!!RESTAURANT ARRAY = %@", [[_restaurantArray objectAtIndex:0] restaurantName]);
         
         [self.restaurantTableView reloadData];
     }];
@@ -117,16 +114,14 @@
         else {NSLog(@"Error is nil");}
         
         if (placeLikelihoodList != nil) {
-            //NSLog(@"**********placeLikelihoodList=%@", placeLikelihoodList.description);
+            
             GMSPlace *place = [[[placeLikelihoodList likelihoods] firstObject] place];
             
             if (place != nil) {
-              //  NSLog(@"******************PLACE IS NOT NIL= %@", place.description);
                 _currentLocation = place.coordinate;
-            //    NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
+               //NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
             else{
-           //     NSLog(@"****************Place is nil");
                 _currentLocation = place.coordinate;
              //   NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
@@ -173,17 +168,18 @@
             newRestaurant.restaurantWebsite = urlToString;
             
             
-            
             NSString *formattedAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@", "];
             
             NSString *locationStringToPass = [NSString stringWithFormat:@"%f, %f", newRestaurant.location.latitude, newRestaurant.location.longitude];
 
           
             
-           
+//            currentLatitude = [NSString stringWithFormat:@"%f", newRestaurant.location.latitude];
+//            NSLog(@"CURRENT LATITUDE ======= @%@", currentLatitude);
             
             
-            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restaurant_website":newRestaurant.restaurantWebsite,@"restaurant_rating":newRestaurant.restaurantRating};
+            
+            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restaurant_website":newRestaurant.restaurantWebsite,@"restaurant_rating":newRestaurant.restaurantRating, @"restaurant_latitude":currentLatitude};
             
             NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
             
@@ -223,8 +219,6 @@
     [cell layoutIfNeeded];
     return cell;
 }
-
-
 
 
 #pragma mark - Navigation

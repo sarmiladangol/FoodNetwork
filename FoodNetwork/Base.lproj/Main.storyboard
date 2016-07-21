@@ -311,9 +311,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7Y-bS-nZp">
-                                <rect key="frame" x="20" y="72" width="280" height="143"/>
-                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-G3-3Ya">
+                                <rect key="frame" x="39" y="72" width="240" height="128"/>
+                                <connections>
+                                    <segue destination="epH-Sr-rop" kind="embed" id="QO5-yO-WXn"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -365,6 +368,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmk-MN-chu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="367"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Hpd-1J-4wA">
+            <objects>
+                <viewController id="epH-Sr-rop" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fl4-4E-hAf">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5g-jY-Fub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="361"/>
         </scene>
     </scenes>
 </document>
