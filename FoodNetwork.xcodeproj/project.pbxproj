@@ -23,6 +23,12 @@
 		C64B57B41D4002EC00AE88AD /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57B31D4002EC00AE88AD /* user.png */; };
 		C64B57B61D4006D100AE88AD /* home_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57B51D4006D100AE88AD /* home_selected.png */; };
 		C64B57B81D400CD000AE88AD /* icons.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57B71D400CD000AE88AD /* icons.png */; };
+		C64B57BA1D4150F400AE88AD /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57B91D4150F400AE88AD /* food.png */; };
+		C64B57BC1D41514900AE88AD /* food2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BB1D41514900AE88AD /* food2.jpg */; };
+		C64B57C01D4154D700AE88AD /* r1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BD1D4154D700AE88AD /* r1.jpg */; };
+		C64B57C11D4154D700AE88AD /* r2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BE1D4154D700AE88AD /* r2.jpg */; };
+		C64B57C21D4154D700AE88AD /* r3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BF1D4154D700AE88AD /* r3.jpg */; };
+		C64B57C41D41558000AE88AD /* r4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57C31D41558000AE88AD /* r4.jpg */; };
 		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
 		C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +60,12 @@
 		C64B57B31D4002EC00AE88AD /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		C64B57B51D4006D100AE88AD /* home_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_selected.png; sourceTree = "<group>"; };
 		C64B57B71D400CD000AE88AD /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons.png; sourceTree = "<group>"; };
+		C64B57B91D4150F400AE88AD /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		C64B57BB1D41514900AE88AD /* food2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = food2.jpg; sourceTree = "<group>"; };
+		C64B57BD1D4154D700AE88AD /* r1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r1.jpg; sourceTree = "<group>"; };
+		C64B57BE1D4154D700AE88AD /* r2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r2.jpg; sourceTree = "<group>"; };
+		C64B57BF1D4154D700AE88AD /* r3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r3.jpg; sourceTree = "<group>"; };
+		C64B57C31D41558000AE88AD /* r4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r4.jpg; sourceTree = "<group>"; };
 		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
 		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
 		C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
@@ -130,6 +142,12 @@
 		C637572E1D341BB50082D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C64B57C31D41558000AE88AD /* r4.jpg */,
+				C64B57BD1D4154D700AE88AD /* r1.jpg */,
+				C64B57BE1D4154D700AE88AD /* r2.jpg */,
+				C64B57BF1D4154D700AE88AD /* r3.jpg */,
+				C64B57BB1D41514900AE88AD /* food2.jpg */,
+				C64B57B91D4150F400AE88AD /* food.png */,
 				C64B57B71D400CD000AE88AD /* icons.png */,
 				C64B57B51D4006D100AE88AD /* home_selected.png */,
 				C64B57B31D4002EC00AE88AD /* user.png */,
@@ -200,6 +218,7 @@
 				TargetAttributes = {
 					C637572A1D341BB50082D607 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = TM264FVPQ8;
 					};
 				};
 			};
@@ -226,11 +245,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64B57C21D4154D700AE88AD /* r3.jpg in Resources */,
+				C64B57C41D41558000AE88AD /* r4.jpg in Resources */,
 				C64B57B81D400CD000AE88AD /* icons.png in Resources */,
+				C64B57C11D4154D700AE88AD /* r2.jpg in Resources */,
+				C64B57C01D4154D700AE88AD /* r1.jpg in Resources */,
 				C637573E1D341BB50082D607 /* LaunchScreen.storyboard in Resources */,
+				C64B57BA1D4150F400AE88AD /* food.png in Resources */,
 				C637573B1D341BB50082D607 /* Assets.xcassets in Resources */,
 				C64B57B61D4006D100AE88AD /* home_selected.png in Resources */,
 				C64B57B41D4002EC00AE88AD /* user.png in Resources */,
+				C64B57BC1D41514900AE88AD /* food2.jpg in Resources */,
 				C637578A1D3572370082D607 /* GoogleService-Info.plist in Resources */,
 				C63757461D341BC70082D607 /* Podfile in Resources */,
 				C63757391D341BB50082D607 /* Main.storyboard in Resources */,
@@ -415,10 +440,13 @@
 			baseConfigurationReference = 567DB2D13B3AC928576E9F09 /* Pods-FoodNetwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.FoodNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -427,10 +455,13 @@
 			baseConfigurationReference = 16AB2587C818FD143829B588 /* Pods-FoodNetwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.FoodNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

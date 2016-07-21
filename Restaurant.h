@@ -16,8 +16,8 @@
 @property(nonatomic, strong) NSString *restaurantAddress;
 @property(nonatomic, strong) NSString *restaurantPhoneNumber;
 @property(nonatomic, strong) NSString *restaurantWebsite;
-@property float *restaurantRating;
-
+//@property float *restaurantRating;
+@property (nonatomic, strong) NSString *restaurantRating;
 @property (strong, nonatomic) NSString *restaurantLocation;
 
 //@property(nonatomic, strong) NSMutableArray *restaurantArray;

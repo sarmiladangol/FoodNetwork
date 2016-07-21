@@ -25,22 +25,15 @@
     _currentRestaurantPhoneNumberLabel.text = _currentRestaurant.restaurantPhoneNumber;
     
     _currentRestaurantWebsiteLabel.text = _currentRestaurant.restaurantWebsite;
-   // _currentRestaurantRatingLabel.text = _currentRestaurant.restaurantRating;
+    _currentRestaurantRatingLabel.text = _currentRestaurant.restaurantRating;
    
-    NSLog(@"************#######!!!!!!!!NAME=%@, ADDRESS=%@, PHONE=%@, WEBSITE=%@",_currentRestaurantNameLabel.text, _currentRestaurantAddressLabel.text, _currentRestaurantPhoneNumberLabel.text, _currentRestaurantWebsiteLabel.text);
+    NSLog(@"************#######!!!!!!!!NAME=%@, ADDRESS=%@, PHONE=%@, WEBSITE=%@, RATING= %@",_currentRestaurantNameLabel.text, _currentRestaurantAddressLabel.text, _currentRestaurantPhoneNumberLabel.text, _currentRestaurantWebsiteLabel.text, _currentRestaurantRatingLabel.text);
+   
     
-   
     
-   
     UIImageView *img=[[UIImageView alloc]initWithFrame:CGRectMake(20, 20, 20, 20)];
     img.image=[UIImage imageNamed:@"icons.png"];
     [_currentRestaurantNameLabel addSubview:img];
-    
-    
-    
-    
-    
-    
     
 }
 
@@ -59,27 +52,22 @@
     [[UIApplication sharedApplication] openURL:phoneNumberURL];
 }
 
-
-
-
 - (IBAction)gotoWebsite:(id)sender {
     NSLog(@"********* goto website **********");
-//    NSURL *website = _currentRestaurant.restaurantWebsite;
-//    NSLog(@"Website:%@", website);
-//    [[UIApplication sharedApplication] openURL:website];
+    NSString *websiteString = _currentRestaurant.restaurantWebsite;
+    websiteString = [NSString stringWithFormat:@"site:%@", websiteString];
+    NSURL *websiteUrl = [NSURL URLWithString:websiteString];
+    [[UIApplication sharedApplication] openURL:websiteUrl];
 }
 
 - (IBAction)openGoogleMaps:(id)sender {
     NSLog(@"************ Open Google maps ***********");
 //    NSString *latlong = _currentRestaurant.restaurantLocation;
-    
-    
-    
-  //  NSString *mapUrl = [NSString stringWithFormat:@"http:/maps.google.com/maps?ll=%@", [latlong stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    
+//    
+//    NSString *mapUrl = [NSString stringWithFormat:@"http:/maps.google.com/maps?ll=%@", [latlong stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
 //    NSString *mapUrl = [NSString stringWithFormat:@"%@", [latlong stringByAddingPercentEncodingWithAllowedCharacters:NSUTF8StringEncoding]];
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mapUrl]];
+//   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mapUrl]];
 }
 
 
