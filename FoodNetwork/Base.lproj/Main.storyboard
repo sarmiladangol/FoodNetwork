@@ -248,34 +248,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="restaurantName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWq-jg-clY">
-                                <rect key="frame" x="20" y="223" width="280" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="restaurantName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWq-jg-clY">
+                                <rect key="frame" x="20" y="287" width="280" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="restaurantAddress" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4h-2r-eNE">
-                                <rect key="frame" x="39" y="373" width="261" height="45"/>
+                                <rect key="frame" x="39" y="464" width="261" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="restaurantPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-dq-XCg">
-                                <rect key="frame" x="39" y="426" width="280" height="21"/>
+                                <rect key="frame" x="43" y="413" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ure-5y-WaP">
-                                <rect key="frame" x="129" y="510" width="63" height="30"/>
+                                <rect key="frame" x="129" y="518" width="63" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Check-In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1D-N7-ppm">
-                                <rect key="frame" x="20" y="335" width="37" height="30"/>
+                                <rect key="frame" x="20" y="382" width="37" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="CALL"/>
                                 <connections>
@@ -283,7 +284,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FH7-o0-3pU">
-                                <rect key="frame" x="121" y="333" width="79" height="30.5"/>
+                                <rect key="frame" x="121" y="382" width="79" height="30.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="DIRECTION"/>
                                 <connections>
@@ -291,34 +292,64 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Tm-DP-ePc">
-                                <rect key="frame" x="236" y="335" width="64" height="30"/>
+                                <rect key="frame" x="236" y="386" width="64" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="WEBSITE"/>
                                 <connections>
                                     <action selector="gotoWebsite:" destination="OQq-qF-xhM" eventType="touchUpInside" id="UHr-Xx-PMf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="restaurantRating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oaz-89-Fuo">
-                                <rect key="frame" x="20" y="273" width="280" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="restaurantRating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oaz-89-Fuo">
+                                <rect key="frame" x="20" y="323" width="280" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="restaurantWebsite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dua-zY-Vya">
-                                <rect key="frame" x="40" y="455" width="280" height="21"/>
+                                <rect key="frame" x="40" y="442" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-G3-3Ya">
-                                <rect key="frame" x="39" y="72" width="240" height="128"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zS-G3-3Ya">
+                                <rect key="frame" x="39" y="78" width="240" height="179"/>
                                 <connections>
-                                    <segue destination="epH-Sr-rop" kind="embed" id="QO5-yO-WXn"/>
+                                    <segue destination="epH-Sr-rop" kind="embed" identifier="locationForMapSegue" id="QO5-yO-WXn"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="restaurantTypes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rih-eQ-HjY">
+                                <rect key="frame" x="20" y="358" width="280" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="N4P-4E-h9O">
+                                <rect key="frame" x="12" y="414" width="20" height="20"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="website.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-Js-bFg">
+                                <rect key="frame" x="12" y="443" width="20" height="20"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="r1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SzW-CP-Xw0">
+                                <rect key="frame" x="12" y="472" width="18" height="28"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Oaz-89-Fuo" secondAttribute="leading" id="2EC-xX-j0m"/>
+                            <constraint firstItem="Oaz-89-Fuo" firstAttribute="top" secondItem="VWq-jg-clY" secondAttribute="bottom" id="5Vl-Rb-JvU"/>
+                            <constraint firstItem="5zS-G3-3Ya" firstAttribute="top" secondItem="EtX-zD-eZ9" secondAttribute="bottom" constant="15" id="CFN-RA-lhg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5zS-G3-3Ya" secondAttribute="trailing" id="CKJ-oU-HHv"/>
+                            <constraint firstItem="5zS-G3-3Ya" firstAttribute="leading" secondItem="bDI-nU-i4b" secondAttribute="leadingMargin" id="KIJ-qW-9EW"/>
+                            <constraint firstItem="Rih-eQ-HjY" firstAttribute="top" secondItem="Oaz-89-Fuo" secondAttribute="bottom" id="Kxh-eY-ixh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rih-eQ-HjY" secondAttribute="trailing" id="TUb-aR-aJT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VWq-jg-clY" secondAttribute="trailing" id="UyH-Z5-icF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oaz-89-Fuo" secondAttribute="trailing" id="iav-Ek-G1b"/>
+                            <constraint firstItem="VWq-jg-clY" firstAttribute="top" secondItem="5zS-G3-3Ya" secondAttribute="bottom" constant="15" id="js7-FA-T1i"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="VWq-jg-clY" secondAttribute="leading" id="p6h-RK-YzL"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Rih-eQ-HjY" secondAttribute="leading" id="qhy-54-1yI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Nj-iF-kQC"/>
                     <connections>
@@ -326,6 +357,7 @@
                         <outlet property="currentRestaurantNameLabel" destination="VWq-jg-clY" id="RoQ-Z2-h84"/>
                         <outlet property="currentRestaurantPhoneNumberLabel" destination="FGd-dq-XCg" id="yiD-qV-fbe"/>
                         <outlet property="currentRestaurantRatingLabel" destination="Oaz-89-Fuo" id="kEh-0P-CCj"/>
+                        <outlet property="currentRestaurantTypesLabel" destination="Rih-eQ-HjY" id="FKt-rD-c5k"/>
                         <outlet property="currentRestaurantWebsiteLabel" destination="dua-zY-Vya" id="NUa-4E-e1c"/>
                     </connections>
                 </viewController>
@@ -373,8 +405,12 @@
         <scene sceneID="Hpd-1J-4wA">
             <objects>
                 <viewController id="epH-Sr-rop" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="phY-0f-chz"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ot-3u-32z"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fl4-4E-hAf">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="179"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -384,4 +420,9 @@
             <point key="canvasLocation" x="1442" y="361"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="phone.png" width="256" height="256"/>
+        <image name="r1.jpg" width="80" height="136"/>
+        <image name="website.jpg" width="120" height="120"/>
+    </resources>
 </document>

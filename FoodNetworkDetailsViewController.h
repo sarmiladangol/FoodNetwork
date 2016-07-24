@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 @import GoogleMaps;
 #import "FoodNetworkListTableViewController.h"
+#import "MapViewController.h"
 
 @interface FoodNetworkDetailsViewController : UIViewController
 @property (strong, nonatomic) Restaurant *currentRestaurant;
@@ -19,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentRestaurantPhoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentRestaurantWebsiteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentRestaurantRatingLabel;
-
+@property (weak, nonatomic) NSString *currentRestaurantLongitude;
+@property (weak, nonatomic) NSString *currentRestaurantLatitude;
+@property (weak, nonatomic) IBOutlet UILabel *currentRestaurantTypesLabel;
 @end

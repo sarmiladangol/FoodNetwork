@@ -7,7 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import "FoodNetworkListTableViewController.h"
 
 @interface MapViewController ()
 
@@ -20,16 +19,13 @@ GMSMarker *marker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _mapLocation.latitude = [_mapLatitude doubleValue];
+    _mapLocation.longitude = [_mapLongitude doubleValue];
     
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
-    
-    
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:42.366093
-                                                            longitude:-83.0745931
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:_mapLocation.latitude
+                                                            longitude:_mapLocation.longitude
                                                                  zoom:6];
-    
+
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
     self.view = mapView;
@@ -37,9 +33,9 @@ GMSMarker *marker;
     
     // Creates a marker in the center of the map.
     marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(42.366093, -83.0745931);
-    marker.title = @"Detroit";
-    marker.snippet = @"Michigan";
+    marker.position = CLLocationCoordinate2DMake(_mapLocation.latitude, _mapLocation.longitude);
+    marker.title =_name;
+    marker.snippet = [NSString stringWithFormat:@"Rating: %@", _rating];
     marker.map = mapView;
 }
 

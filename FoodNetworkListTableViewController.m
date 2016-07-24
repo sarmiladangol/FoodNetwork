@@ -91,7 +91,9 @@
                 newRestaurant.restaurantWebsite = child.value;
               //  NSLog(@"WEBSITE $$$$$$!!!=%@", child.value);
             }
-            
+            if([child.key isEqualToString:@"restaurant_types"]){
+                newRestaurant.restaurantTypes = child.value;
+            }
         }
         
         [_restaurantArray addObject:newRestaurant];
@@ -157,7 +159,8 @@
             newRestaurant.restaurantName = place.name;
             newRestaurant.restaurantAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@"\n"];
             newRestaurant.restaurantPhoneNumber = place.phoneNumber;
-           
+            newRestaurant.restaurantTypes = place.types[1].description;
+            
             //convert RATING from float to NSString in order to store in NSDICTIONARY
             NSString *newRating = [NSString stringWithFormat:@"%f", place.rating];
             newRestaurant.restaurantRating = newRating;
@@ -172,14 +175,15 @@
             
             NSString *locationStringToPass = [NSString stringWithFormat:@"%f, %f", newRestaurant.location.latitude, newRestaurant.location.longitude];
 
-          
+            newRestaurant.restaurantLatitude = [NSString stringWithFormat:@"%f", newRestaurant.location.latitude];
+             newRestaurant.restaurantLongitude = [NSString stringWithFormat:@"%f", newRestaurant.location.longitude];
             
 //            currentLatitude = [NSString stringWithFormat:@"%f", newRestaurant.location.latitude];
 //            NSLog(@"CURRENT LATITUDE ======= @%@", currentLatitude);
             
             
             
-            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restaurant_website":newRestaurant.restaurantWebsite,@"restaurant_rating":newRestaurant.restaurantRating, @"restaurant_latitude":currentLatitude};
+            NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restaurant_website":newRestaurant.restaurantWebsite,@"restaurant_rating":newRestaurant.restaurantRating, @"restaurant_types":newRestaurant.restaurantTypes};
             
             NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
             

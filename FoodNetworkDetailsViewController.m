@@ -23,13 +23,9 @@
     _currentRestaurantNameLabel.text = _currentRestaurant.restaurantName;
     _currentRestaurantAddressLabel.text = _currentRestaurant.restaurantAddress;
     _currentRestaurantPhoneNumberLabel.text = _currentRestaurant.restaurantPhoneNumber;
-    
     _currentRestaurantWebsiteLabel.text = _currentRestaurant.restaurantWebsite;
-    _currentRestaurantRatingLabel.text = _currentRestaurant.restaurantRating;
-   
-    NSLog(@"************#######!!!!!!!!NAME=%@, ADDRESS=%@, PHONE=%@, WEBSITE=%@, RATING= %@",_currentRestaurantNameLabel.text, _currentRestaurantAddressLabel.text, _currentRestaurantPhoneNumberLabel.text, _currentRestaurantWebsiteLabel.text, _currentRestaurantRatingLabel.text);
-   
-    
+    _currentRestaurantRatingLabel.text = [NSString stringWithFormat:@"Ratings: %@", _currentRestaurant.restaurantRating];
+    _currentRestaurantTypesLabel.text = _currentRestaurant.restaurantTypes;
     
     UIImageView *img=[[UIImageView alloc]initWithFrame:CGRectMake(20, 20, 20, 20)];
     img.image=[UIImage imageNamed:@"icons.png"];
@@ -72,16 +68,17 @@
 //   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mapUrl]];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"locationForMapSegue"]){
+        
+        MapViewController *vc = [segue destinationViewController];
+        vc.mapLatitude = [NSString stringWithFormat:@"%f", _currentRestaurant.location.latitude];
+        vc.mapLongitude = [NSString stringWithFormat:@"%f", _currentRestaurant.location.longitude];
+        vc.rating = _currentRestaurant.restaurantRating;
+        vc.name = _currentRestaurant.restaurantName;
+    }
 }
-*/
+
 
 @end
