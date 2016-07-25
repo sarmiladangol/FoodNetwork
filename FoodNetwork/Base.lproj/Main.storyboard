@@ -490,6 +490,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tXr-pe-iYC" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Yor-3k-5hE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -553,6 +556,72 @@
             </objects>
             <point key="canvasLocation" x="225" y="1004"/>
         </scene>
+        <!--Signout View Controller-->
+        <scene sceneID="TUr-Bm-B2p">
+            <objects>
+                <viewController id="SOV-Je-bPN" customClass="SignoutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8RE-WV-Bvs"/>
+                        <viewControllerLayoutGuide type="bottom" id="3QL-XN-SKJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tzj-Q0-pf0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About  Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkE-jD-T2k">
+                                <rect key="frame" x="0.0" y="64" width="320" height="38"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.4919719827586207" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-sO-BMN">
+                                <rect key="frame" x="124" y="492" width="73" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOutBtnPressed:" destination="SOV-Je-bPN" eventType="touchUpInside" id="lcg-TQ-m7U"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userProfile.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hg0-n6-0vJ">
+                                <rect key="frame" x="12" y="335" width="130" height="132"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="usernameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u5-hC-v58">
+                                <rect key="frame" x="175" y="373" width="118" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="emailLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fb-84-DtU">
+                                <rect key="frame" x="186" y="407" width="82" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signout.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GdX-cN-jOp">
+                                <rect key="frame" x="0.0" y="102" width="320" height="242"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.41953125000000002" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HVw-W3-0CC">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="uOE-7x-85k"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailLabel" destination="2Fb-84-DtU" id="sUr-hq-URb"/>
+                        <outlet property="sidebarButton" destination="uOE-7x-85k" id="5Fa-N3-nTo"/>
+                        <outlet property="usernameLabel" destination="8u5-hC-v58" id="sZe-3c-w7D"/>
+                        <segue destination="1YG-fh-rTt" kind="push" identifier="signoutSegue" id="485-ip-RyS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8Y-7H-fgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-930" y="-1194"/>
+        </scene>
         <!--History View Controller-->
         <scene sceneID="5QN-s9-D0d">
             <objects>
@@ -583,7 +652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0r-jM-9bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-305" y="1798"/>
+            <point key="canvasLocation" x="-554" y="1702"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="Hpd-1J-4wA">
@@ -637,16 +706,37 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62W-Z7-7MP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-305" y="1096"/>
+            <point key="canvasLocation" x="-554" y="994"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wYA-tZ-abm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tXr-pe-iYC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="adl-Ii-Pcs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SOV-Je-bPN" kind="relationship" relationship="rootViewController" id="d9R-h5-WTA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzc-YZ-Vz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1350" y="994"/>
         </scene>
     </scenes>
     <resources>
         <image name="menu.png" width="28" height="20"/>
         <image name="phone.png" width="256" height="256"/>
         <image name="r1.jpg" width="80" height="136"/>
+        <image name="signout.jpg" width="600" height="450"/>
+        <image name="userProfile.png" width="225" height="225"/>
         <image name="website.jpg" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kKF-Ce-feh"/>
+        <segue reference="485-ip-RyS"/>
     </inferredMetricsTieBreakers>
 </document>

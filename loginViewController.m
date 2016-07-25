@@ -18,7 +18,13 @@ NSString *newLoginPassword;
 
 - (void)viewDidLoad {
     _invalidLogin.hidden = true;
+    
+    [self viewWillAppear:self];
     [super viewDidLoad];
+}
+// To hide BACK button in navigation bar
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)didReceiveMemoryWarning {

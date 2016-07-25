@@ -31,6 +31,9 @@
 		C6A013F31D45100000D2888F /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A013F21D45100000D2888F /* SidebarViewController.m */; };
 		C6A014301D46482800D2888F /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0142F1D46482800D2888F /* UserProfileViewController.m */; };
 		C6A014331D46679200D2888F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A014321D46679200D2888F /* HistoryViewController.m */; };
+		C6A014361D46805F00D2888F /* SignoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A014351D46805F00D2888F /* SignoutViewController.m */; };
+		C6A014381D468D8800D2888F /* userProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A014371D468D8800D2888F /* userProfile.png */; };
+		C6A0143A1D46907300D2888F /* signout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6A014391D46907300D2888F /* signout.jpg */; };
 		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
 		C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */; };
 /* End PBXBuildFile section */
@@ -75,6 +78,10 @@
 		C6A0142F1D46482800D2888F /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		C6A014311D46679200D2888F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		C6A014321D46679200D2888F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		C6A014341D46805F00D2888F /* SignoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignoutViewController.h; sourceTree = "<group>"; };
+		C6A014351D46805F00D2888F /* SignoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignoutViewController.m; sourceTree = "<group>"; };
+		C6A014371D468D8800D2888F /* userProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userProfile.png; sourceTree = "<group>"; };
+		C6A014391D46907300D2888F /* signout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = signout.jpg; sourceTree = "<group>"; };
 		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
 		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
 		C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
@@ -152,6 +159,8 @@
 		C637572E1D341BB50082D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6A014391D46907300D2888F /* signout.jpg */,
+				C6A014371D468D8800D2888F /* userProfile.png */,
 				C6A013BD1D44F7A900D2888F /* menu.png */,
 				C6A013BE1D44F7A900D2888F /* menu@2x.png */,
 				C64B57CF1D429C8200AE88AD /* website.jpg */,
@@ -194,6 +203,8 @@
 				C6A0142F1D46482800D2888F /* UserProfileViewController.m */,
 				C6A014311D46679200D2888F /* HistoryViewController.h */,
 				C6A014321D46679200D2888F /* HistoryViewController.m */,
+				C6A014341D46805F00D2888F /* SignoutViewController.h */,
+				C6A014351D46805F00D2888F /* SignoutViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -272,8 +283,10 @@
 			files = (
 				C6A013C01D44F7A900D2888F /* menu@2x.png in Resources */,
 				C64B57D01D429C8200AE88AD /* website.jpg in Resources */,
+				C6A014381D468D8800D2888F /* userProfile.png in Resources */,
 				C64B57C01D4154D700AE88AD /* r1.jpg in Resources */,
 				C637573E1D341BB50082D607 /* LaunchScreen.storyboard in Resources */,
+				C6A0143A1D46907300D2888F /* signout.jpg in Resources */,
 				C637573B1D341BB50082D607 /* Assets.xcassets in Resources */,
 				C64B57CE1D429C7100AE88AD /* name.png in Resources */,
 				C64B57CC1D42988B00AE88AD /* phone.png in Resources */,
@@ -346,6 +359,7 @@
 				C61881C31D358D3300F4CD86 /* UserProfile.m in Sources */,
 				C6A014331D46679200D2888F /* HistoryViewController.m in Sources */,
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
+				C6A014361D46805F00D2888F /* SignoutViewController.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,
 				C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */,

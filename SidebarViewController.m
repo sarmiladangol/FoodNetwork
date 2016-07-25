@@ -10,6 +10,7 @@
 
 @interface SidebarViewController ()
 
+
 @end
 
 @implementation SidebarViewController{NSArray *menuItems;}
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     menuItems = @[@"userProfile", @"foodNetworkList", @"history", @"signout"];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,6 +48,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     return cell;}
+
+
 
 
 /*

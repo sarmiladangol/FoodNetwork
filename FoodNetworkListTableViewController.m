@@ -58,7 +58,7 @@
     [restaurantsRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot){
         
         Restaurant *newRestaurant = [[Restaurant alloc]init];
-        NSLog(@"snapchotDescription=%@", snapshot.description);
+       // NSLog(@"snapchotDescription=%@", snapshot.description);
         
         for (FIRDataSnapshot *child in snapshot.children) {
             newRestaurant.uid = snapshot.key;
