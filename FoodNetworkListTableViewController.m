@@ -34,6 +34,15 @@
     [super viewDidLoad];
     [self getCurrentInfo];
     
+    // Trigger hamburger menu
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -185,7 +194,7 @@
             
             NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restaurant_website":newRestaurant.restaurantWebsite,@"restaurant_rating":newRestaurant.restaurantRating, @"restaurant_types":newRestaurant.restaurantTypes};
             
-            NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
+           // NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
             
             FIRDatabaseReference *ref = [[FIRDatabase database] reference];
             FIRDatabaseReference *restaurantRef = [ref child:@"restaurants"].childByAutoId;

@@ -28,6 +28,7 @@ NSString *newLoginPassword;
 - (IBAction)loginBtnPressed:(id)sender {
     [self removeSpaceFromLoginPassword];
     [self validateLoginInputs];
+    //[self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
 
 -(void)removeSpaceFromLoginPassword{
@@ -39,20 +40,20 @@ NSString *newLoginPassword;
         if(error){
             _invalidLogin.hidden = false;
         }
-        
+        else{
+            _invalidLogin.hidden = true;
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        }
     }];
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"loginSegue"])
+    {
+        FoodNetworkListTableViewController *vc = [segue destinationViewController];
+    }
 }
-*/
+
 
 @end

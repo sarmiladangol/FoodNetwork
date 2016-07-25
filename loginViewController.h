@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "FoodNetworkListTableViewController.h"
 
 @interface loginViewController : ViewController
 @property (weak, nonatomic) IBOutlet UITextField *emailLogin;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLogin;
 @property (weak, nonatomic) IBOutlet UILabel *invalidLogin;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

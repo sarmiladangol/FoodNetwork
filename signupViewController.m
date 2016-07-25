@@ -98,17 +98,20 @@ NSString *retypeNewPassword;
         NSDictionary *newUserProfileDict = @{@"email": newUserProfile.email, @"username": newUserProfile.username, @"userId": newUserProfile.uid};
         
         [currentUserProfileRef setValue:newUserProfileDict];
+        [self performSegueWithIdentifier:@"signupSegue" sender:self];
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     if ([[segue identifier] isEqualToString:@"signupSegue"])
+    {
+        FoodNetworkListTableViewController *vc = [segue destinationViewController];
+    }
 }
-*/
+
 
 @end
