@@ -35,6 +35,7 @@
     
      [self listenForChangesInUserProfile];
   //  [self getCurrentUserProfileFromFirebase];
+    [self getCurrentUserProfileFromFirebase];
     
 }
 
@@ -44,15 +45,37 @@
 
 
 -(void)listenForChangesInUserProfile {
+    NSLog(@"&&&&&&&&&&&&&&&&&&&&&&& LISTENNNNNN&&&&&&&&&&&&&&");
     FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileChangedQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
     
     [currentUserProfileChangedQuery observeEventType:FIRDataEventTypeChildChanged withBlock:^(FIRDataSnapshot *snapshot) {
-        _currentUser = [[UserProfile alloc]initUserProfileWithEmail:snapshot.value[@"email"] username:snapshot.value[@"username"] uid:snapshot.value[@"userId"]];
-       
+        
+        _currentUser = [[UserProfile alloc]initUserProfileWithEmail:snapshot.value[@"email"] username:snapshot.value[@"username"] password:snapshot.value[@"password"] uid:snapshot.value[@"uid"]];
+        NSLog(@"%@", _currentUser.description);
+//        _currentUser = [[UserProfile alloc]initUserProfileWithEmail:snapshot.value[@"email"] username:snapshot.value[@"username"] uid:snapshot.value[@"userId"]];
+//       
        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_usernameLabel setText:[NSString stringWithFormat:@"Hello, %@!", _currentUser.username]];
+            [_emailLabel setText:[NSString stringWithFormat:@"Hello, %@", _currentUser.email]];
+        });
+    }];
+}
+
+//Gets the current user's UserProfile from Firebase.
+-(void)getCurrentUserProfileFromFirebase {
+    NSLog(@"&&&&&&&&&&&&&&&&&&&&&&& GET CURRENT USER FROM FB &&&&&&&&&&&&&&");
+    FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
+    FIRDatabaseQuery *currentUserProfileQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
+    [currentUserProfileQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+        _currentUserProfileKey = snapshot.key;
+        _currentUser = [[UserProfile alloc]initUserProfileWithEmail:snapshot.value[@"email"] username:snapshot.value[@"username"] password:snapshot.value[@"password"] uid:snapshot.value[@"uid"]];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_usernameLabel setText:[NSString stringWithFormat:@"%@!", _currentUser.username]];
+            [_emailLabel setText:[NSString stringWithFormat:@"%@", _currentUser.email]];
         });
     }];
 }
