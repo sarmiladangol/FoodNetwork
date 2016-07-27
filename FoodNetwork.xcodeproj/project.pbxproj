@@ -35,6 +35,8 @@
 		C6A014381D468D8800D2888F /* userProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A014371D468D8800D2888F /* userProfile.png */; };
 		C6A0143A1D46907300D2888F /* signout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6A014391D46907300D2888F /* signout.jpg */; };
 		C6EEE82D1D4910B900BBEB27 /* smily.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6EEE82C1D4910B900BBEB27 /* smily.jpg */; };
+		C6EEE8331D492B5100BBEB27 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */; };
+		C6EEE8361D494A8900BBEB27 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8351D494A8900BBEB27 /* History.m */; };
 		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
 		C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,10 @@
 		C6A014371D468D8800D2888F /* userProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userProfile.png; sourceTree = "<group>"; };
 		C6A014391D46907300D2888F /* signout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = signout.jpg; sourceTree = "<group>"; };
 		C6EEE82C1D4910B900BBEB27 /* smily.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smily.jpg; sourceTree = "<group>"; };
+		C6EEE8311D492B5100BBEB27 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
+		C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
+		C6EEE8341D494A8900BBEB27 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
+		C6EEE8351D494A8900BBEB27 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
 		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
 		C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 			children = (
 				C63757821D353DCF0082D607 /* Restaurant.h */,
 				C63757831D353DCF0082D607 /* Restaurant.m */,
+				C6EEE8341D494A8900BBEB27 /* History.h */,
+				C6EEE8351D494A8900BBEB27 /* History.m */,
 				C61881C11D358D3300F4CD86 /* UserProfile.h */,
 				C61881C21D358D3300F4CD86 /* UserProfile.m */,
 			);
@@ -208,6 +216,8 @@
 				C6A014321D46679200D2888F /* HistoryViewController.m */,
 				C6A014341D46805F00D2888F /* SignoutViewController.h */,
 				C6A014351D46805F00D2888F /* SignoutViewController.m */,
+				C6EEE8311D492B5100BBEB27 /* CheckInViewController.h */,
+				C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -362,8 +372,10 @@
 				C6A013F31D45100000D2888F /* SidebarViewController.m in Sources */,
 				C61881C31D358D3300F4CD86 /* UserProfile.m in Sources */,
 				C6A014331D46679200D2888F /* HistoryViewController.m in Sources */,
+				C6EEE8331D492B5100BBEB27 /* CheckInViewController.m in Sources */,
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
 				C6A014361D46805F00D2888F /* SignoutViewController.m in Sources */,
+				C6EEE8361D494A8900BBEB27 /* History.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,
 				C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */,

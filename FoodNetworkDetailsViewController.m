@@ -8,6 +8,11 @@
 
 #import "FoodNetworkDetailsViewController.h"
 //@import GoogleMaps;
+
+#import "CheckInViewController.h"
+@import Firebase;
+@import FirebaseDatabase;
+//@import FirebaseStorage;
 @interface FoodNetworkDetailsViewController ()
 
 @end
@@ -78,7 +83,20 @@
         vc.rating = _currentRestaurant.restaurantRating;
         vc.name = _currentRestaurant.restaurantName;
     }
+    
+    if ([[segue identifier] isEqualToString:@"checkinSegue"]) {
+        CheckInViewController *vc = [segue destinationViewController];
+        vc.checkinRestaurant = _currentRestaurant;
+        NSLog(@"VVVVCCCCCC************* %@", vc.checkinRestaurant.description);
+        
+    }
+    
+    
 }
 
+- (IBAction)checkinBtnPressed:(id)sender {
+    NSLog(@"Checkin Btn pressed");
+    [self performSegueWithIdentifier:@"checkinSegue" sender:self];
+}
 
 @end

@@ -272,13 +272,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ure-5y-WaP">
-                                <rect key="frame" x="129" y="518" width="63" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Check-In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1D-N7-ppm">
                                 <rect key="frame" x="20" y="382" width="37" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -338,6 +331,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="r1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SzW-CP-Xw0">
                                 <rect key="frame" x="12" y="472" width="18" height="28"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ure-5y-WaP">
+                                <rect key="frame" x="128" y="517" width="63" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Check-In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkinBtnPressed:" destination="OQq-qF-xhM" eventType="touchUpInside" id="u8Q-SM-yDT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -363,16 +366,17 @@
                         <outlet property="currentRestaurantRatingLabel" destination="Oaz-89-Fuo" id="kEh-0P-CCj"/>
                         <outlet property="currentRestaurantTypesLabel" destination="Rih-eQ-HjY" id="FKt-rD-c5k"/>
                         <outlet property="currentRestaurantWebsiteLabel" destination="dua-zY-Vya" id="NUa-4E-e1c"/>
+                        <segue destination="luQ-Tr-vON" kind="push" identifier="checkinSegue" id="bBW-VY-s0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck8-rH-Lzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052" y="302"/>
         </scene>
-        <!--View Controller-->
+        <!--Check In View Controller-->
         <scene sceneID="5lQ-fB-sj1">
             <objects>
-                <viewController id="luQ-Tr-vON" sceneMemberID="viewController">
+                <viewController id="luQ-Tr-vON" customClass="CheckInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0jE-V9-4Tf"/>
                         <viewControllerLayoutGuide type="bottom" id="bgL-Q7-Ez0"/>
@@ -411,26 +415,43 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="spendAmount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAb-SD-PYa">
-                                <rect key="frame" x="136" y="268" width="108" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-pA-pY9">
                                 <rect key="frame" x="119" y="387" width="83" height="30"/>
                                 <color key="backgroundColor" red="0.046307913959026337" green="0.71471905708312988" blue="0.91915136575698853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="luQ-Tr-vON" eventType="touchUpInside" id="TKv-BV-FiR"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-2g-omQ">
+                                <rect key="frame" x="180" y="264" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="spendAmount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAb-SD-PYa">
+                                <rect key="frame" x="56" y="273" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="AKk-7f-0ab"/>
+                    <connections>
+                        <outlet property="amountText" destination="vbd-2g-omQ" id="Q5k-wN-8Fe"/>
+                        <outlet property="checkinAddressLabel" destination="oOR-hK-8lV" id="hSL-9u-Avs"/>
+                        <outlet property="checkinDateLabel" destination="Ul4-Qq-AxA" id="FaJ-gb-7Dr"/>
+                        <outlet property="checkinNameLabel" destination="Yk8-9k-nF9" id="UdR-Ki-OEk"/>
+                        <outlet property="checkinPhoneLabel" destination="P6G-Rm-6MU" id="ygy-Di-1ET"/>
+                        <outlet property="checkinWebsiteLabel" destination="GYz-hv-zPG" id="6wR-CA-hFO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUl-Mh-lj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="1702"/>
+            <point key="canvasLocation" x="1052" y="1026"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hSV-Pq-ygJ">
