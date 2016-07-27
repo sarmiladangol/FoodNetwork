@@ -58,6 +58,7 @@ NSString *newLoginPassword;
     if ([[segue identifier] isEqualToString:@"loginSegue"])
     {
         FoodNetworkListTableViewController *vc = [segue destinationViewController];
+        NSLog(@"%@", vc.description);
     }
 }
 

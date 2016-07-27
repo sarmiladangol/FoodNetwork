@@ -13,8 +13,5 @@
 
 @interface SignoutViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (strong, nonatomic) NSString *currentUserProfileKey;
 
 @end

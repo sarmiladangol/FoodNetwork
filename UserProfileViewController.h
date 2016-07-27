@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
+#import "loginViewController.h"
 
 @interface UserProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
