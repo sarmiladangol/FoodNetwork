@@ -58,8 +58,9 @@
         newHistory.checkinRestaurantAddress = _checkinRestaurant.restaurantAddress;
         newHistory.checkinRestaurantPhone =_checkinRestaurant.restaurantPhoneNumber;
         newHistory.checkinRestaurantWebsite = _checkinRestaurant.restaurantWebsite;
+        newHistory.checkinRestaurantAmountSpend = _amountText.text;
         
-        NSDictionary *newCheckinRestaurantDict = @{@"checkedIn_restaurant_name": newHistory.checkinRestaurantName, @"checkedIn_restaurant_address":newHistory.checkinRestaurantAddress, @"checkedIn_restaurant_phone":newHistory.checkinRestaurantPhone, @"checkedIn_restaurant_website":newHistory.checkinRestaurantWebsite};
+        NSDictionary *newCheckinRestaurantDict = @{@"checkedIn_restaurant_name": newHistory.checkinRestaurantName, @"checkedIn_restaurant_address":newHistory.checkinRestaurantAddress, @"checkedIn_restaurant_phone":newHistory.checkinRestaurantPhone, @"checkedIn_restaurant_website":newHistory.checkinRestaurantWebsite, @"checkedIn_restaurant_amountSpend":newHistory.checkinRestaurantAmountSpend};
        
         [checkinRestauranRef setValue:newCheckinRestaurantDict];
     }

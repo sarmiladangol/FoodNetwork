@@ -15,4 +15,5 @@
 @property(nonatomic, strong) NSString *checkinRestaurantAddress;
 @property(nonatomic, strong) NSString *checkinRestaurantPhone;
 @property(nonatomic, strong) NSString *checkinRestaurantWebsite;
+@property (nonatomic, strong) NSString *checkinRestaurantAmountSpend;
 @end

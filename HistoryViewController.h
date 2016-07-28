@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
-@interface HistoryViewController : UIViewController
+#import "History.h"
+
+@interface HistoryViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

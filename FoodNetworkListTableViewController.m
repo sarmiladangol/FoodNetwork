@@ -51,7 +51,6 @@
 }
 
 -(void)getRestaurantFromDatabase{
-    NSLog(@"**********GET RESTAURANT FROM DATABASE ********************");
     _restaurantArray = [[NSMutableArray alloc]init];
     FIRDatabaseReference *ref = [[FIRDatabase database]reference];
     FIRDatabaseReference *restaurantsRef = [ref child:@"restaurants"];

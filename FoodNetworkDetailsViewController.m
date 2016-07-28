@@ -87,15 +87,11 @@
     if ([[segue identifier] isEqualToString:@"checkinSegue"]) {
         CheckInViewController *vc = [segue destinationViewController];
         vc.checkinRestaurant = _currentRestaurant;
-        NSLog(@"VVVVCCCCCC************* %@", vc.checkinRestaurant.description);
-        
     }
-    
     
 }
 
 - (IBAction)checkinBtnPressed:(id)sender {
-    NSLog(@"Checkin Btn pressed");
     [self performSegueWithIdentifier:@"checkinSegue" sender:self];
 }
 
