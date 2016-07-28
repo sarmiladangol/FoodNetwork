@@ -13,6 +13,7 @@
 @import Firebase;
 @import FirebaseDatabase;
 @import FirebaseStorage;
+@import FirebaseAuth;
 
 @interface CheckInViewController ()
 @end
@@ -20,6 +21,7 @@
 @implementation CheckInViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     _checkinNameLabel.text = _checkinRestaurant.restaurantName;
     _checkinAddressLabel.text = _checkinRestaurant.restaurantAddress;
@@ -46,13 +48,20 @@
 
 - (IBAction)saveBtnPressed:(id)sender {
     [self createHistoryOfCheckedInRestaurantOnFirebase];
+    
 }
 
 -(void)createHistoryOfCheckedInRestaurantOnFirebase {
+    NSLog(@"CHECK-IN HISTORY TO FIREBASE");
+    NSString *auth = [FIRAuth auth].currentUser.uid;
+    NSLog(@"************AUTH AUTH AUTH AUTH ************* = %@", auth);
+    
     if ([FIRAuth auth].currentUser != nil) {
         
-        FIRDatabaseReference *checkinRestauranRef = [[[[FIRDatabase database]reference]child:@"history"]childByAutoId];
-
+       // FIRDatabaseReference *checkinRestauranRef = [[[[FIRDatabase database]reference]child:@"history"]childByAutoId];
+        
+        FIRDatabaseReference *checkinRestauranRef = [[FIRDatabase database] reference];
+        
         History *newHistory = [[History alloc]init];
         newHistory.checkinRestaurantName = _checkinRestaurant.restaurantName;
         newHistory.checkinRestaurantAddress = _checkinRestaurant.restaurantAddress;
@@ -60,10 +69,24 @@
         newHistory.checkinRestaurantWebsite = _checkinRestaurant.restaurantWebsite;
         newHistory.checkinRestaurantAmountSpend = _amountText.text;
         
+        NSString *key = [[checkinRestauranRef child:@"history"] childByAutoId].key;
+        NSLog(@"************KEY ********* = %@", key);
+        
         NSDictionary *newCheckinRestaurantDict = @{@"checkedIn_restaurant_name": newHistory.checkinRestaurantName, @"checkedIn_restaurant_address":newHistory.checkinRestaurantAddress, @"checkedIn_restaurant_phone":newHistory.checkinRestaurantPhone, @"checkedIn_restaurant_website":newHistory.checkinRestaurantWebsite, @"checkedIn_restaurant_amountSpend":newHistory.checkinRestaurantAmountSpend};
        
-        [checkinRestauranRef setValue:newCheckinRestaurantDict];
+        
+        NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/history/%@/%@",auth, key]: newCheckinRestaurantDict};
+        
+       // [checkinRestauranRef setValue:newCheckinRestaurantDict];
+        [checkinRestauranRef updateChildValues:childUpdates];
+        
+
+        
+        
+        
     }
 }
+
+
 
 @end

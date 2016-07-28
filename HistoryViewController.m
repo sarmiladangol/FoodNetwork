@@ -9,6 +9,7 @@
 #import "HistoryViewController.h"
 @import Firebase;
 @import FirebaseDatabase;
+@import FirebaseAuth;
 
 @interface HistoryViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *historyTableView;
@@ -18,7 +19,7 @@
 @implementation HistoryViewController{}
 
 - (void)viewDidLoad {
-    [self getHistoryFromDatabase];
+    [self retrieveHistoryFromDatabase];
     [super viewDidLoad];
     
     // Trigger hamburger menu
@@ -36,6 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+/* old getHistoryFromDatabase */
 
 -(void)getHistoryFromDatabase{
     NSLog(@"**********GET HISTORY FROM DATABASE");
@@ -60,6 +62,37 @@
         
     }];
     
+}
+
+/* new getHistoryFromDatabase */
+
+-(void)retrieveHistoryFromDatabase{
+    NSLog(@"RETRIEVE HISTORY FROM DATABASE");
+    FIRDatabaseReference *ref = [[FIRDatabase database]reference];
+    FIRDatabaseReference *historyRef = [ref child:@"history"];
+    [historyRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot){
+    NSDictionary *dict = snapshot.value;
+        NSLog(@"******************* DICTIONARY **************** = %@", dict);
+        NSString *counter = [dict valueForKey:@"uid"];
+        NSLog(@"************ COUNTER ************* =%@", counter);
+        
+        
+        FIRDatabaseReference *checkinRestauranRef = [[FIRDatabase database] reference];
+        NSString *key = [[checkinRestauranRef child:@"history"] childByAutoId].key;
+        NSLog(@"************KEY ********* = %@", key);
+
+        
+    }];
+    
+//    FQuery *query = [[ref queryOrderedByChild:@"groupId"] queryEqualToValue:@"Pkmwa3WUrH"];
+//    
+//    [query observeSingleEventOfType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+//        
+//        NSDictionary *dict = snapshot.value;
+//        
+//        NSString *counter = [dict valueForKey:@"counter"];
+//        
+     
 }
 
 #pragma mark - Table view data source

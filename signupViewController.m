@@ -92,14 +92,21 @@ NSString *retypeNewPassword;
 -(void)createUserProfileOnFirebase{
 
     if ([FIRAuth auth].currentUser != nil) {
-        FIRDatabaseReference *currentUserProfileRef = [[[[FIRDatabase database]reference]child:@"userprofile"]childByAutoId];
+       FIRDatabaseReference *currentUserProfileRef = [[[[FIRDatabase database]reference]child:@"userprofile"]childByAutoId];
+
+        
         UserProfile *newUserProfile = [[UserProfile alloc]initUserProfileWithEmail:_emailSignUp.text username:_usernameSignUp.text uid:[FIRAuth auth].currentUser.uid];
         newUserProfile.profileImageDownloadURL = @"https://firebasestorage.googleapis.com/v0/b/wire-e0cde.appspot.com/o/default_user.png?alt=media&token=d351d796-3f49-4f8f-8ca8-7d)1cd17f510";
         
         NSDictionary *newUserProfileDict = @{@"email": newUserProfile.email, @"username": newUserProfile.username, @"userId": newUserProfile.uid};
         
-        [currentUserProfileRef setValue:newUserProfileDict];
+       // [currentUserProfileRef setValue:newUserProfileDict];
+        [currentUserProfileRef updateChildValues: newUserProfileDict];
         [self performSegueWithIdentifier:@"signupSegue" sender:self];
+        
+        
+        
+       
     }
 }
 
