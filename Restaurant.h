@@ -26,4 +26,5 @@
 @property (nonatomic, strong) NSString *restaurantLatitude;
 @property (nonatomic, strong) NSString *restaurantLongitude;
 
+@property (strong, nonatomic) NSString *loggedinuUserId;
 @end

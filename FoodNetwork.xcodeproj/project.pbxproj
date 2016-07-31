@@ -38,6 +38,9 @@
 		C6EEE8331D492B5100BBEB27 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */; };
 		C6EEE8361D494A8900BBEB27 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8351D494A8900BBEB27 /* History.m */; };
 		C6EEE8381D4A4F4E00BBEB27 /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EEE8371D4A4F4E00BBEB27 /* history.png */; };
+		C6EEE8401D4E75C300BBEB27 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE83F1D4E75C300BBEB27 /* DLPieChart.m */; };
+		C6EEE8421D4E7A8400BBEB27 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EEE8411D4E7A8400BBEB27 /* QuartzCore.framework */; };
+		C6EEE8451D4EA14000BBEB27 /* BudgetPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8441D4EA14000BBEB27 /* BudgetPlan.m */; };
 		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
 		C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */; };
 /* End PBXBuildFile section */
@@ -92,6 +95,11 @@
 		C6EEE8341D494A8900BBEB27 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		C6EEE8351D494A8900BBEB27 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		C6EEE8371D4A4F4E00BBEB27 /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
+		C6EEE83E1D4E75C300BBEB27 /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
+		C6EEE83F1D4E75C300BBEB27 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
+		C6EEE8411D4E7A8400BBEB27 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C6EEE8431D4EA14000BBEB27 /* BudgetPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetPlan.h; sourceTree = "<group>"; };
+		C6EEE8441D4EA14000BBEB27 /* BudgetPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetPlan.m; sourceTree = "<group>"; };
 		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
 		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
 		C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6EEE8421D4E7A8400BBEB27 /* QuartzCore.framework in Frameworks */,
 				08E5877601C4A3106E4CEA7F /* libPods-FoodNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +131,7 @@
 		AA3CDC6519F725C5D9A1303A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6EEE8411D4E7A8400BBEB27 /* QuartzCore.framework */,
 				8623954BF7B9362C6F16B6C5 /* libPods-FoodNetwork.a */,
 			);
 			name = Frameworks;
@@ -130,6 +140,7 @@
 		C63757221D341BB50082D607 = {
 			isa = PBXGroup;
 			children = (
+				C6EEE83D1D4E75C300BBEB27 /* Pie Chart Library */,
 				C63757371D341BB50082D607 /* Main.storyboard */,
 				C637573C1D341BB50082D607 /* LaunchScreen.storyboard */,
 				C63757451D341BC70082D607 /* Podfile */,
@@ -193,6 +204,8 @@
 				C6EEE8351D494A8900BBEB27 /* History.m */,
 				C61881C11D358D3300F4CD86 /* UserProfile.h */,
 				C61881C21D358D3300F4CD86 /* UserProfile.m */,
+				C6EEE8431D4EA14000BBEB27 /* BudgetPlan.h */,
+				C6EEE8441D4EA14000BBEB27 /* BudgetPlan.m */,
 			);
 			name = Models;
 			path = ..;
@@ -234,6 +247,15 @@
 			);
 			name = SWRevealViewController;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C6EEE83D1D4E75C300BBEB27 /* Pie Chart Library */ = {
+			isa = PBXGroup;
+			children = (
+				C6EEE83E1D4E75C300BBEB27 /* DLPieChart.h */,
+				C6EEE83F1D4E75C300BBEB27 /* DLPieChart.m */,
+			);
+			path = "Pie Chart Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +401,8 @@
 				C6EEE8331D492B5100BBEB27 /* CheckInViewController.m in Sources */,
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
 				C6A014361D46805F00D2888F /* SignoutViewController.m in Sources */,
+				C6EEE8401D4E75C300BBEB27 /* DLPieChart.m in Sources */,
+				C6EEE8451D4EA14000BBEB27 /* BudgetPlan.m in Sources */,
 				C6EEE8361D494A8900BBEB27 /* History.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,

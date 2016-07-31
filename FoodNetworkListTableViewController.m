@@ -207,7 +207,27 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    //If not even a single restaurant is added in a List then _restaurantArray will be empty and its count is zero. So, no data is available to display in table view cell
+    
+    NSInteger numOfSections = 0;
+    if ([_restaurantArray count] > 0)
+    {
+        self.restaurantTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        numOfSections = 1;
+        self.restaurantTableView.backgroundView = nil;
+    }
+    else
+    {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.restaurantTableView.bounds.size.width, self.restaurantTableView.bounds.size.height)];
+        noDataLabel.text             = @"No data available";
+        noDataLabel.textColor        = [UIColor brownColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        noDataLabel.textColor = [UIColor brownColor];
+        self.restaurantTableView.backgroundView = noDataLabel;
+        self.restaurantTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return numOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

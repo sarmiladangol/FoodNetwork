@@ -10,16 +10,28 @@
 @import Firebase;
 @import FirebaseDatabase;
 @import FirebaseAuth;
+#import "History.h"
+#import "BudgetPlan.h"
 
 @interface HistoryViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *historyTableView;
 @property (strong, nonatomic) NSMutableArray *historyOfCheckinRestaurantArray;
+@property (weak, nonatomic) IBOutlet UITextField *budgetText;
+@property (weak, nonatomic) IBOutlet UITextField *totalAmountSpend;
+@property(weak, nonatomic) UILabel *budgetLabel;
+@property(weak, nonatomic) UILabel *totalDollarLabel;
+
 @end
 
 @implementation HistoryViewController{}
+@synthesize pieChartView;
+NSInteger total;
 
 - (void)viewDidLoad {
-    [self retrieveHistoryFromDatabase];
+    [self getHistoryFromDatabase];
+    [_budgetText addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self drawPiechart];
     [super viewDidLoad];
     
     // Trigger hamburger menu
@@ -34,94 +46,109 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/* old getHistoryFromDatabase */
+
+-(void)drawPiechart{
+    _totalAmountSpend.text = @"60";
+    
+    //draw pie chart
+    NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+    for (int i=0;i<1;i++) {
+        //random number generator
+        // NSNumber *number = [NSNumber numberWithInt:rand()%60+20];
+        //add number to array
+        [dataArray addObject:_budgetText.text];
+        [dataArray addObject:_totalAmountSpend.text];
+        NSLog(@"DATAARRAY Description = %@", dataArray.description);
+        
+        
+    }
+    //call DLPiechart to method
+    [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArray];
+  //  [self.pieChartView reloadData];
+
+}
+
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    _budgetLabel.text = _budgetText.text;
+    _totalDollarLabel.text = _totalAmountSpend.text;
+    NSLog(@"_totalDollarLabel= %@", _totalDollarLabel.text);
+    [self drawPiechart];
+}
+
 
 -(void)getHistoryFromDatabase{
-    NSLog(@"**********GET HISTORY FROM DATABASE");
     _historyOfCheckinRestaurantArray = [[NSMutableArray alloc]init];
     FIRDatabaseReference *ref = [[FIRDatabase database]reference];
     FIRDatabaseReference *historyRef = [ref child:@"history"];
-    [historyRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot){
-        History *newHistory = [[History alloc]init];
-        for (FIRDataSnapshot *child in snapshot.children) {
-            newHistory.uid = snapshot.key;
-            if([child.key isEqualToString:@"checkedIn_restaurant_name"]){
-                newHistory.checkinRestaurantName = child.value;
-            }
-            if([child.key isEqualToString:@"checkedIn_restaurant_amountSpend"]){
-                newHistory.checkinRestaurantAmountSpend = child.value;
+   
+    [historyRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
+        
+        for (id key in snapshot.value){
+            NSDictionary *restaurantCheckingDict = [snapshot.value objectForKey:key];
+            NSString *counter = [restaurantCheckingDict valueForKey:@"checkedIn_restaurant_userID"];
+            
+            if ([counter isEqualToString:[FIRAuth auth].currentUser.uid]) {
+                [_historyOfCheckinRestaurantArray addObject:restaurantCheckingDict];
+                [self.historyTableView reloadData];
             }
             
-           
         }
-        [_historyOfCheckinRestaurantArray addObject:newHistory];
-        [self.historyTableView reloadData];
-        
     }];
-    
+   
 }
 
-/* new getHistoryFromDatabase */
-
--(void)retrieveHistoryFromDatabase{
-    NSLog(@"RETRIEVE HISTORY FROM DATABASE");
-    FIRDatabaseReference *ref = [[FIRDatabase database]reference];
-    FIRDatabaseReference *historyRef = [ref child:@"history"];
-    [historyRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot){
-    NSDictionary *dict = snapshot.value;
-        NSLog(@"******************* DICTIONARY **************** = %@", dict);
-        NSString *counter = [dict valueForKey:@"uid"];
-        NSLog(@"************ COUNTER ************* =%@", counter);
-        
-        
-        FIRDatabaseReference *checkinRestauranRef = [[FIRDatabase database] reference];
-        NSString *key = [[checkinRestauranRef child:@"history"] childByAutoId].key;
-        NSLog(@"************KEY ********* = %@", key);
-
-        
-    }];
-    
-//    FQuery *query = [[ref queryOrderedByChild:@"groupId"] queryEqualToValue:@"Pkmwa3WUrH"];
-//    
-//    [query observeSingleEventOfType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-//        
-//        NSDictionary *dict = snapshot.value;
-//        
-//        NSString *counter = [dict valueForKey:@"counter"];
-//        
-     
-}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_historyOfCheckinRestaurantArray count];
+    //If not even a single restaurant is checked in then historyOfCheckinRestaurantArray will be empty and its count is zero. So, no data is available to display in table view cell
     
+    NSInteger numOfSections = 0;
+    if ([_historyOfCheckinRestaurantArray count] > 0)
+    {
+        self.historyTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        numOfSections = 1;
+        self.historyTableView.backgroundView = nil;
+    }
+    else
+    {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.historyTableView.bounds.size.width, self.historyTableView.bounds.size.height)];
+        noDataLabel.text             = @"No data available";
+        noDataLabel.textColor        = [UIColor brownColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        noDataLabel.textColor = [UIColor brownColor];
+        self.historyTableView.backgroundView = noDataLabel;
+        self.historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return numOfSections;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+   return [_historyOfCheckinRestaurantArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     self.historyTableView.contentInset = UIEdgeInsetsMake(0,-15,0,-30) ;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell" forIndexPath:indexPath];
-    History *historyInCell = [_historyOfCheckinRestaurantArray objectAtIndex:indexPath.row];
     tableView.rowHeight = 60;
-    cell.textLabel.text = historyInCell.checkinRestaurantName;
-    NSString *amt= historyInCell.checkinRestaurantAmountSpend;
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",[[_historyOfCheckinRestaurantArray objectAtIndex:indexPath.row] objectForKey:@"checkedIn_restaurant_name"]];
+   
+    NSString *amt = [NSString stringWithFormat:@"%@",[[_historyOfCheckinRestaurantArray objectAtIndex:indexPath.row] objectForKey:@"checkedIn_restaurant_amountSpend"]];
     if ([amt  isEqual: @" "] || [amt isEqual:@""]) {
-        cell.detailTextLabel.text = @"$0.00";
-    }
+                cell.detailTextLabel.text = @"$0.00";
+            }
     else{
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Amount Spend = $%@", historyInCell.checkinRestaurantAmountSpend];
-    }
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Amount Spend = $%@.00", amt];
+            }
     
     cell.imageView.image = [UIImage imageNamed:@"history.png"];
     [cell layoutIfNeeded];
+    
     return cell;
 }
 
@@ -134,5 +161,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

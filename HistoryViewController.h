@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
-#import "History.h"
+#import "DLPieChart.h"
 
 @interface HistoryViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (nonatomic, retain)IBOutlet DLPieChart *pieChartView;
+
 
 @end

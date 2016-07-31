@@ -71,11 +71,13 @@
         
         NSString *key = [[checkinRestauranRef child:@"history"] childByAutoId].key;
         NSLog(@"************KEY ********* = %@", key);
+        NSString *authID = [FIRAuth auth].currentUser.uid;
+        newHistory.checkinUserId = authID;
         
-        NSDictionary *newCheckinRestaurantDict = @{@"checkedIn_restaurant_name": newHistory.checkinRestaurantName, @"checkedIn_restaurant_address":newHistory.checkinRestaurantAddress, @"checkedIn_restaurant_phone":newHistory.checkinRestaurantPhone, @"checkedIn_restaurant_website":newHistory.checkinRestaurantWebsite, @"checkedIn_restaurant_amountSpend":newHistory.checkinRestaurantAmountSpend};
+        NSDictionary *newCheckinRestaurantDict = @{@"checkedIn_restaurant_name": newHistory.checkinRestaurantName, @"checkedIn_restaurant_address":newHistory.checkinRestaurantAddress, @"checkedIn_restaurant_phone":newHistory.checkinRestaurantPhone, @"checkedIn_restaurant_website":newHistory.checkinRestaurantWebsite, @"checkedIn_restaurant_amountSpend":newHistory.checkinRestaurantAmountSpend, @"checkedIn_restaurant_userID":authID};
        
         
-        NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/history/%@/%@",auth, key]: newCheckinRestaurantDict};
+        NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/history/%@/",key]: newCheckinRestaurantDict};
         
        // [checkinRestauranRef setValue:newCheckinRestaurantDict];
         [checkinRestauranRef updateChildValues:childUpdates];
