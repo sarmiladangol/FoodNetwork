@@ -68,7 +68,7 @@
 
 //Gets the current user's UserProfile from Firebase.
 -(void)getCurrentUserProfileFromFirebase {
-    NSLog(@"************ GET CURRENT USER PROFILE FROM FIREBASE  ********** ");
+   // NSLog(@"************ GET CURRENT USER PROFILE FROM FIREBASE  ********** ");
     FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
     [currentUserProfileQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
@@ -90,7 +90,7 @@
  when a new child is added.
  */
 -(void)listenForChangesInUserProfile {
-    NSLog(@"************ LISTEN FOR CHANGES IN USER PROFILE  ********** ");
+   // NSLog(@"************ LISTEN FOR CHANGES IN USER PROFILE  ********** ");
 
     FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileChangedQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
@@ -99,7 +99,7 @@
         _currentUser = [[UserProfile alloc]initUserProfileWithEmail:snapshot.value[@"email"] username:snapshot.value[@"username"] uid:snapshot.value[@"userId"]];
         _currentUser.profileImageDownloadURL = snapshot.value[@"profilePhotoDownloadURL"];
         _currentUser.profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:snapshot.value[@"profilePhotoDownloadURL"]]]];
-        NSLog(@"_current user URL: %@", _currentUser.profileImageDownloadURL);
+       // NSLog(@"_current user URL: %@", _currentUser.profileImageDownloadURL);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_currentUserProfilePhoto setImage:_currentUser.profileImage];
             [_usernameLabel setText:[NSString stringWithFormat:@"Hello, %@!", _currentUser.username]];
@@ -111,7 +111,7 @@
  Once it is stored in Firebase storage it gives us back a downloadURL.
  */
 -(void)uploadPhotoToFirebase:(NSData *)imageData {
-    NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
+   // NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
     //Create a uniqueID for the image and add it to the end of the images reference.
     NSString *uniqueID = [[NSUUID UUID]UUIDString];
     NSString *newImageReference = [NSString stringWithFormat:@"profilePhotos/%@.jpg", uniqueID];
@@ -135,7 +135,7 @@
  is taken and the metaDataURL is sent back. It then updates the child node on Firebase.
  */
 -(void)updateCurrentUserProfileImageDownloadURLOnFirebaseDatabase:(UserProfile *)userProfile {
-    NSLog(@"************ UPDATE CURRENT USER PROFILE IMAGE DOWNLOAD URL ON FIREBASE DATABASE ********** ");
+    //NSLog(@"************ UPDATE CURRENT USER PROFILE IMAGE DOWNLOAD URL ON FIREBASE DATABASE ********** ");
 
     FIRDatabaseReference *firebaseRef = [[FIRDatabase database] reference];
     
@@ -158,7 +158,7 @@
 #pragma mark Custom View Set Up
 //Rounds the profile photo
 -(void)viewWillLayoutSubviews {
-    NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
+   // NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
 
     _currentUserProfilePhoto.layer.borderWidth = 4.0;
     _currentUserProfilePhoto.layer.borderColor = [[UIColor blackColor] CGColor];
@@ -167,7 +167,7 @@
 }
 //Presents the camera when the profile photo is selected
 - (IBAction)profilePhotoSelected:(id)sender {
-    NSLog(@"************ PROFILE PHOTO SELECTED  ********** ");
+  //  NSLog(@"************ PROFILE PHOTO SELECTED  ********** ");
     [self presentCamera];
     
 }
@@ -176,7 +176,7 @@
 #pragma mark Camera Methods.
 //Presents the iPhone's camera and is called when the profile photo is selected.
 -(void)presentCamera {
-    NSLog(@"************ PRESENT CAMERA  ********** ");
+   // NSLog(@"************ PRESENT CAMERA  ********** ");
     _imagePicker = [[UIImagePickerController alloc] init];
     [_imagePicker setDelegate:self];
     [_imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];

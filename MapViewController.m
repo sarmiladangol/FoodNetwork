@@ -18,6 +18,7 @@
 GMSMarker *marker;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     _mapLocation.latitude = [_mapLatitude doubleValue];
     _mapLocation.longitude = [_mapLongitude doubleValue];
@@ -37,6 +38,10 @@ GMSMarker *marker;
     marker.title =_name;
     marker.snippet = [NSString stringWithFormat:@"Rating: %@", _rating];
     marker.map = mapView;
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    mapView.selectedMarker = marker;
 }
 
 - (void)didReceiveMemoryWarning {
