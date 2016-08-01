@@ -415,16 +415,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-pA-pY9">
-                                <rect key="frame" x="119" y="387" width="83" height="30"/>
-                                <color key="backgroundColor" red="0.046307913959026337" green="0.71471905708312988" blue="0.91915136575698853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveBtnPressed:" destination="luQ-Tr-vON" eventType="touchUpInside" id="TKv-BV-FiR"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-2g-omQ">
                                 <rect key="frame" x="180" y="264" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -436,6 +426,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-pA-pY9">
+                                <rect key="frame" x="119" y="387" width="83" height="30"/>
+                                <color key="backgroundColor" red="0.046307913959026337" green="0.71471905708312988" blue="0.91915136575698853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="luQ-Tr-vON" eventType="touchUpInside" id="TKv-BV-FiR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -447,11 +447,44 @@
                         <outlet property="checkinNameLabel" destination="Yk8-9k-nF9" id="UdR-Ki-OEk"/>
                         <outlet property="checkinPhoneLabel" destination="P6G-Rm-6MU" id="ygy-Di-1ET"/>
                         <outlet property="checkinWebsiteLabel" destination="GYz-hv-zPG" id="6wR-CA-hFO"/>
+                        <segue destination="zEG-uZ-aib" kind="custom" identifier="savedSegue" customClass="SWRevealViewControllerSeguePushController" id="l56-r5-nuT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUl-Mh-lj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="2066"/>
+        </scene>
+        <!--Saved View Controller-->
+        <scene sceneID="HhH-cO-H5K">
+            <objects>
+                <viewController id="sck-P7-6gM" customClass="SavedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C0k-tu-8pp"/>
+                        <viewControllerLayoutGuide type="bottom" id="ElW-dr-7r6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lNC-vm-P6F">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great! You have successfully saved your restaurant." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7d-Ug-PJb">
+                                <rect key="frame" x="20" y="209" width="252" height="138"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.089068971574306488" green="0.72802752256393433" blue="0.25558197498321533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U15-ic-zaL">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="HeY-8B-7Ea"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sidebarButton" destination="HeY-8B-7Ea" id="jTo-Nc-dWA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTX-rr-Y0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="2061"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hSV-Pq-ygJ">
@@ -912,6 +945,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzc-YZ-Vz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1350" y="994"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cvl-yU-4Yv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zEG-uZ-aib" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hw4-GG-09P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sck-P7-6gM" kind="relationship" relationship="rootViewController" id="fjH-dz-tEK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XI5-vl-UEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="490" y="2061"/>
         </scene>
     </scenes>
     <resources>

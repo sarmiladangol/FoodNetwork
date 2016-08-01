@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "History.h"
 #import "FoodNetworkDetailsViewController.h"
+#import "SavedViewController.h"
 @import Firebase;
 @import FirebaseDatabase;
 @import FirebaseStorage;
@@ -36,25 +37,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+   
+    if ([[segue identifier] isEqualToString:@"savedSegue"]) {
+        SavedViewController *vc = [segue destinationViewController];
+           }
 }
-*/
+
 
 - (IBAction)saveBtnPressed:(id)sender {
     [self createHistoryOfCheckedInRestaurantOnFirebase];
+    [self performSegueWithIdentifier:@"savedSegue" sender:self];
     
 }
 
 -(void)createHistoryOfCheckedInRestaurantOnFirebase {
     NSLog(@"CHECK-IN HISTORY TO FIREBASE");
     NSString *auth = [FIRAuth auth].currentUser.uid;
-    NSLog(@"************AUTH AUTH AUTH AUTH ************* = %@", auth);
+    //NSLog(@"************AUTH AUTH AUTH AUTH ************* = %@", auth);
     
     if ([FIRAuth auth].currentUser != nil) {
         
@@ -70,7 +73,7 @@
         newHistory.checkinRestaurantAmountSpend = _amountText.text;
         
         NSString *key = [[checkinRestauranRef child:@"history"] childByAutoId].key;
-        NSLog(@"************KEY ********* = %@", key);
+       // NSLog(@"************KEY ********* = %@", key);
         NSString *authID = [FIRAuth auth].currentUser.uid;
         newHistory.checkinUserId = authID;
         

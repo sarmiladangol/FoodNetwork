@@ -25,6 +25,7 @@
 		C64B57CC1D42988B00AE88AD /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57CB1D42988B00AE88AD /* phone.png */; };
 		C64B57CE1D429C7100AE88AD /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57CD1D429C7100AE88AD /* name.png */; };
 		C64B57D01D429C8200AE88AD /* website.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57CF1D429C8200AE88AD /* website.jpg */; };
+		C68111E61D4FE287001BD997 /* SavedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68111E51D4FE287001BD997 /* SavedViewController.m */; };
 		C6A013BF1D44F7A900D2888F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A013BD1D44F7A900D2888F /* menu.png */; };
 		C6A013C01D44F7A900D2888F /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A013BE1D44F7A900D2888F /* menu@2x.png */; };
 		C6A013F01D450DB400D2888F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A013EF1D450DB400D2888F /* SWRevealViewController.m */; };
@@ -75,6 +76,8 @@
 		C64B57CB1D42988B00AE88AD /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		C64B57CD1D429C7100AE88AD /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = "<group>"; };
 		C64B57CF1D429C8200AE88AD /* website.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = website.jpg; sourceTree = "<group>"; };
+		C68111E41D4FE287001BD997 /* SavedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedViewController.h; sourceTree = "<group>"; };
+		C68111E51D4FE287001BD997 /* SavedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedViewController.m; sourceTree = "<group>"; };
 		C6A013BD1D44F7A900D2888F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		C6A013BE1D44F7A900D2888F /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		C6A013EE1D450DB400D2888F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				C6A014351D46805F00D2888F /* SignoutViewController.m */,
 				C6EEE8311D492B5100BBEB27 /* CheckInViewController.h */,
 				C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */,
+				C68111E41D4FE287001BD997 /* SavedViewController.h */,
+				C68111E51D4FE287001BD997 /* SavedViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -406,6 +411,7 @@
 				C6EEE8361D494A8900BBEB27 /* History.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
 				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,
+				C68111E61D4FE287001BD997 /* SavedViewController.m in Sources */,
 				C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */,
 				C6A013F01D450DB400D2888F /* SWRevealViewController.m in Sources */,
 				C6A014301D46482800D2888F /* UserProfileViewController.m in Sources */,

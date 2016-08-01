@@ -55,22 +55,22 @@ NSInteger total;
     NSArray *titles = [_historyOfCheckinRestaurantArray valueForKey:@"checkedIn_restaurant_amountSpend"];
     NSUInteger count = [_historyOfCheckinRestaurantArray count];
     NSInteger sum = 0;
-   
+    
     for (NSUInteger i = 0; i < count; i++) {
         sum += [[titles objectAtIndex:i] integerValue];
         if (sum == 0) {
             _totalAmountSpend.text = @"0.00";
         }
         else{ _totalAmountSpend.text = [NSString stringWithFormat:@"%ld", sum];
-        [self drawPiechart];
-}
+            [self drawPiechart];
+        }
     }
     
     
 }
 
 -(void)drawPiechart{
-   // _totalAmountSpend.text = @"60";
+    // _totalAmountSpend.text = @"60";
     
     //draw pie chart
     NSMutableArray *dataArray = [[NSMutableArray alloc]init];
@@ -80,20 +80,20 @@ NSInteger total;
         //add number to array
         [dataArray addObject:_budgetText.text];
         [dataArray addObject:_totalAmountSpend.text];
-        NSLog(@"DATAARRAY Description = %@", dataArray.description);
+       // NSLog(@"DATAARRAY Description = %@", dataArray.description);
         
         
     }
     //call DLPiechart to method
     [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArray];
-  //  [self.pieChartView reloadData];
-
+    //  [self.pieChartView reloadData];
+    
 }
 
 -(void)textFieldDidChange :(UITextField *)theTextField{
     _budgetLabel.text = _budgetText.text;
     _totalDollarLabel.text = _totalAmountSpend.text;
-    NSLog(@"_totalDollarLabel= %@", _totalDollarLabel.text);
+   // NSLog(@"_totalDollarLabel= %@", _totalDollarLabel.text);
     [self drawPiechart];
 }
 
@@ -102,7 +102,7 @@ NSInteger total;
     _historyOfCheckinRestaurantArray = [[NSMutableArray alloc]init];
     FIRDatabaseReference *ref = [[FIRDatabase database]reference];
     FIRDatabaseReference *historyRef = [ref child:@"history"];
-   
+    
     [historyRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         
         for (id key in snapshot.value){
@@ -117,7 +117,7 @@ NSInteger total;
             
         }
     }];
-   
+    
 }
 
 
@@ -148,7 +148,7 @@ NSInteger total;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   return [_historyOfCheckinRestaurantArray count];
+    return [_historyOfCheckinRestaurantArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,14 +158,14 @@ NSInteger total;
     tableView.rowHeight = 60;
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@",[[_historyOfCheckinRestaurantArray objectAtIndex:indexPath.row] objectForKey:@"checkedIn_restaurant_name"]];
-   
+    
     NSString *amt = [NSString stringWithFormat:@"%@",[[_historyOfCheckinRestaurantArray objectAtIndex:indexPath.row] objectForKey:@"checkedIn_restaurant_amountSpend"]];
     if ([amt  isEqual: @" "] || [amt isEqual:@""]) {
-                cell.detailTextLabel.text = @"$0.00";
-            }
+        cell.detailTextLabel.text = @"$0.00";
+    }
     else{
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"Amount Spend = $%@.00", amt];
-            }
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Amount Spend = $%@.00", amt];
+    }
     
     cell.imageView.image = [UIImage imageNamed:@"history.png"];
     [cell layoutIfNeeded];
@@ -174,14 +174,14 @@ NSInteger total;
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 
