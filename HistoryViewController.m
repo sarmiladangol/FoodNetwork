@@ -30,7 +30,10 @@ NSInteger total;
 
 - (void)viewDidLoad {
     [self getHistoryFromDatabase];
+    
+    //call drawPiechart method on change of text field
     [_budgetText addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
     [self drawPiechart];
     [super viewDidLoad];
     
@@ -48,9 +51,26 @@ NSInteger total;
     [super didReceiveMemoryWarning];
 }
 
+-(void)getTotalAmountFromHistory{
+    NSArray *titles = [_historyOfCheckinRestaurantArray valueForKey:@"checkedIn_restaurant_amountSpend"];
+    NSUInteger count = [_historyOfCheckinRestaurantArray count];
+    NSInteger sum = 0;
+   
+    for (NSUInteger i = 0; i < count; i++) {
+        sum += [[titles objectAtIndex:i] integerValue];
+        if (sum == 0) {
+            _totalAmountSpend.text = @"0.00";
+        }
+        else{ _totalAmountSpend.text = [NSString stringWithFormat:@"%ld", sum];
+        [self drawPiechart];
+}
+    }
+    
+    
+}
 
 -(void)drawPiechart{
-    _totalAmountSpend.text = @"60";
+   // _totalAmountSpend.text = @"60";
     
     //draw pie chart
     NSMutableArray *dataArray = [[NSMutableArray alloc]init];
@@ -92,6 +112,7 @@ NSInteger total;
             if ([counter isEqualToString:[FIRAuth auth].currentUser.uid]) {
                 [_historyOfCheckinRestaurantArray addObject:restaurantCheckingDict];
                 [self.historyTableView reloadData];
+                [self getTotalAmountFromHistory];
             }
             
         }

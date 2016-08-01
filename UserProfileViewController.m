@@ -68,6 +68,7 @@
 
 //Gets the current user's UserProfile from Firebase.
 -(void)getCurrentUserProfileFromFirebase {
+    NSLog(@"************ GET CURRENT USER PROFILE FROM FIREBASE  ********** ");
     FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
     [currentUserProfileQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
@@ -89,6 +90,8 @@
  when a new child is added.
  */
 -(void)listenForChangesInUserProfile {
+    NSLog(@"************ LISTEN FOR CHANGES IN USER PROFILE  ********** ");
+
     FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileChangedQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
     
@@ -108,6 +111,7 @@
  Once it is stored in Firebase storage it gives us back a downloadURL.
  */
 -(void)uploadPhotoToFirebase:(NSData *)imageData {
+    NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
     //Create a uniqueID for the image and add it to the end of the images reference.
     NSString *uniqueID = [[NSUUID UUID]UUIDString];
     NSString *newImageReference = [NSString stringWithFormat:@"profilePhotos/%@.jpg", uniqueID];
@@ -131,7 +135,8 @@
  is taken and the metaDataURL is sent back. It then updates the child node on Firebase.
  */
 -(void)updateCurrentUserProfileImageDownloadURLOnFirebaseDatabase:(UserProfile *)userProfile {
-    
+    NSLog(@"************ UPDATE CURRENT USER PROFILE IMAGE DOWNLOAD URL ON FIREBASE DATABASE ********** ");
+
     FIRDatabaseReference *firebaseRef = [[FIRDatabase database] reference];
     
     /*
@@ -153,6 +158,8 @@
 #pragma mark Custom View Set Up
 //Rounds the profile photo
 -(void)viewWillLayoutSubviews {
+    NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
+
     _currentUserProfilePhoto.layer.borderWidth = 4.0;
     _currentUserProfilePhoto.layer.borderColor = [[UIColor blackColor] CGColor];
     _currentUserProfilePhoto.layer.cornerRadius = _currentUserProfilePhoto.frame.size.width/2;
@@ -160,6 +167,7 @@
 }
 //Presents the camera when the profile photo is selected
 - (IBAction)profilePhotoSelected:(id)sender {
+    NSLog(@"************ PROFILE PHOTO SELECTED  ********** ");
     [self presentCamera];
     
 }
@@ -168,6 +176,7 @@
 #pragma mark Camera Methods.
 //Presents the iPhone's camera and is called when the profile photo is selected.
 -(void)presentCamera {
+    NSLog(@"************ PRESENT CAMERA  ********** ");
     _imagePicker = [[UIImagePickerController alloc] init];
     [_imagePicker setDelegate:self];
     [_imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
