@@ -52,9 +52,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 
 
 #pragma mark Firebase Methods
@@ -67,9 +65,7 @@
 
 
 //Gets the current user's UserProfile from Firebase.
--(void)getCurrentUserProfileFromFirebase {
-   // NSLog(@"************ GET CURRENT USER PROFILE FROM FIREBASE  ********** ");
-    FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
+-(void)getCurrentUserProfileFromFirebase {    FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
     [currentUserProfileQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
         _currentUserProfileKey = snapshot.key;
@@ -78,20 +74,22 @@
         _currentUser.profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:snapshot.value[@"profilePhotoDownloadURL"]]]];
         dispatch_async(dispatch_get_main_queue(), ^{
             [_currentUserProfilePhoto setImage:_currentUser.profileImage];
-            [_usernameLabel setText:[NSString stringWithFormat:@"%@!", _currentUser.username]];
+            [_usernameLabel setText:[NSString stringWithFormat:@"%@", _currentUser.username]];
+            NSLog(@"USERNAME = %@", _currentUser.username);
             [_emailLabel setText:[NSString stringWithFormat:@"%@", _currentUser.email]];
+            NSLog(@"EMAIL = %@", _currentUser.email);
         });
     }];
 }
+
 /*
  Listens for changes to the current user's UserProfile.
  This uses FIRDataEventTypeChildChange, which is similar to FIRDataEventTypeChildAdded
  except that it occurrs when a child node's value is changed in some way and not
  when a new child is added.
  */
--(void)listenForChangesInUserProfile {
-   // NSLog(@"************ LISTEN FOR CHANGES IN USER PROFILE  ********** ");
 
+-(void)listenForChangesInUserProfile {
     FIRDatabaseReference *UserProfileRef = [[[FIRDatabase database]reference]child:@"userprofile"];
     FIRDatabaseQuery *currentUserProfileChangedQuery = [[UserProfileRef queryOrderedByChild:@"userId"] queryEqualToValue:[FIRAuth auth].currentUser.uid];
     
@@ -99,24 +97,27 @@
         _currentUser = [[UserProfile alloc]initUserProfileWithEmail:snapshot.value[@"email"] username:snapshot.value[@"username"] uid:snapshot.value[@"userId"]];
         _currentUser.profileImageDownloadURL = snapshot.value[@"profilePhotoDownloadURL"];
         _currentUser.profileImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:snapshot.value[@"profilePhotoDownloadURL"]]]];
-       // NSLog(@"_current user URL: %@", _currentUser.profileImageDownloadURL);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_currentUserProfilePhoto setImage:_currentUser.profileImage];
-            [_usernameLabel setText:[NSString stringWithFormat:@"Hello, %@!", _currentUser.username]];
+            [_usernameLabel setText:[NSString stringWithFormat:@"%@!", _currentUser.username]];
+            NSLog(@"USERNAME LISTEN = %@", _currentUser.username);
         });
     }];
 }
+
 /*
  This accepts the NSData that is returned from the image picker and then saves it on Firebase Storage.
  Once it is stored in Firebase storage it gives us back a downloadURL.
  */
 -(void)uploadPhotoToFirebase:(NSData *)imageData {
-   // NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
+    
     //Create a uniqueID for the image and add it to the end of the images reference.
     NSString *uniqueID = [[NSUUID UUID]UUIDString];
     NSString *newImageReference = [NSString stringWithFormat:@"profilePhotos/%@.jpg", uniqueID];
+  
     //imagesRef creates a reference for the images folder and then adds a child to that folder, which will be every time a photo is taken.
     FIRStorageReference *imagesRef = [_firebaseStorageRef child:newImageReference];
+   
     //This uploads the photo's NSData onto Firebase Storage.
     FIRStorageUploadTask *uploadTask = [imagesRef putData:imageData metadata:nil completion:^(FIRStorageMetadata *metadata, NSError *error) {
         if (error) {
@@ -156,27 +157,25 @@
     
 }
 #pragma mark Custom View Set Up
+
 //Rounds the profile photo
 -(void)viewWillLayoutSubviews {
-   // NSLog(@"************ UPLOAD PHOTO TO FIREBASE  ********** ");
-
     _currentUserProfilePhoto.layer.borderWidth = 4.0;
-    _currentUserProfilePhoto.layer.borderColor = [[UIColor blackColor] CGColor];
-    _currentUserProfilePhoto.layer.cornerRadius = _currentUserProfilePhoto.frame.size.width/2;
+    _currentUserProfilePhoto.layer.borderColor = [[UIColor whiteColor] CGColor];
+    _currentUserProfilePhoto.layer.cornerRadius = 10.0f;
     _currentUserProfilePhoto.layer.masksToBounds = TRUE;
 }
+
+
 //Presents the camera when the profile photo is selected
 - (IBAction)profilePhotoSelected:(id)sender {
-  //  NSLog(@"************ PROFILE PHOTO SELECTED  ********** ");
     [self presentCamera];
-    
 }
 
 
 #pragma mark Camera Methods.
 //Presents the iPhone's camera and is called when the profile photo is selected.
 -(void)presentCamera {
-   // NSLog(@"************ PRESENT CAMERA  ********** ");
     _imagePicker = [[UIImagePickerController alloc] init];
     [_imagePicker setDelegate:self];
     [_imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -188,6 +187,7 @@
  It then uses the reduceImageSize func and uploadPhotoToFirebase func
  to reduce the image's size and then send it to Firebase.
  */
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     NSData *imageData = UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"], 1);
     UIImage *image = [UIImage imageWithData:imageData];
@@ -195,6 +195,13 @@
     [self uploadPhotoToFirebase:resizedImgData];
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 //Accepts a UIImage and reduces the size of it.
 -(UIImage *)reduceImageSize:(UIImage *)image {
@@ -204,6 +211,7 @@
     UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
     return smallImage;
 }
+
 /*
 #pragma mark - Navigation
 

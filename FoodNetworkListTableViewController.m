@@ -37,6 +37,7 @@
     
     // Trigger hamburger menu
     SWRevealViewController *revealViewController = self.revealViewController;
+    
     if ( revealViewController )
     {
         [self.sidebarButton setTarget: self.revealViewController];
@@ -48,7 +49,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)getRestaurantFromDatabase{
@@ -58,47 +58,37 @@
     [restaurantsRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot){
         
         Restaurant *newRestaurant = [[Restaurant alloc]init];
-        // NSLog(@"snapchotDescription=%@", snapshot.description);
         
         for (FIRDataSnapshot *child in snapshot.children) {
             newRestaurant.uid = snapshot.key;
             if([child.key isEqualToString:@"restaurant_name"]){
                 newRestaurant.restaurantName = child.value;
-                // NSLog(@"!!!!!!!!!!!!!!!!!!!!NAME= %@", newRestaurant.restaurantName);
             }
             if ([child.key isEqualToString:@"location"]){
                 NSArray *items = [child.value componentsSeparatedByString:@","];
                 
-                //  NSLog(@"!!!!!!!!!!!!!!!!ITEMS = %@", items.description);
                 float latitude =[[items objectAtIndex:0] floatValue];
                 float longitude =[[items objectAtIndex:1] floatValue];
                 newRestaurant.location = CLLocationCoordinate2DMake(latitude, longitude);
-                //NSLog(@"!!!!!!!!!!!!!!!!RESTAURANT LCATION=%@", newRestaurant.location);
             }
             
             if([child.key isEqualToString:@"restaurant_address"]){
                 newRestaurant.restaurantAddress = child.value;
-                // NSLog(@"ADDRESS !!!!=%@",newRestaurant.restaurantAddress);
             }
             if([child.key isEqualToString:@"restaurant_phone"]){
                 newRestaurant.restaurantPhoneNumber = child.value;
-                // NSLog(@"PH !!!=%@", child.value);
             }
             
             if([child.key isEqualToString:@"location"]){
                 newRestaurant.restaurantLocation = child.value;
-                // NSLog(@"LOCATION !!!!!!!!!!!= %@", child.value);
-                // NSLog(@"Location !!!=%@", child.description);
             }
             
             if ([child.key isEqualToString:@"restaurant_rating"]) {
                 newRestaurant.restaurantRating = child.value;
-                //NSLog(@"RATING $$$$= %@", child.value);
             }
             
             if([child.key isEqualToString:@"restaurant_website"]){
                 newRestaurant.restaurantWebsite = child.value;
-                //  NSLog(@"WEBSITE $$$$$$!!!=%@", child.value);
             }
             if([child.key isEqualToString:@"restaurant_types"]){
                 newRestaurant.restaurantTypes = child.value;
@@ -106,11 +96,8 @@
         }
         
         [_restaurantArray addObject:newRestaurant];
-        //NSLog(@"!!!COUNT= %lu", (unsigned long)_restaurantArray.count);
-        //NSLog(@"!!!!!!!!!RESTAURANT ARRAY = %@", [[_restaurantArray objectAtIndex:0] restaurantName]);
         
         [self.restaurantTableView reloadData];
-       
     }];
 }
 
@@ -119,7 +106,6 @@
     _placesClient = [GMSPlacesClient sharedClient];
     [_placesClient currentPlaceWithCallback:^(GMSPlaceLikelihoodList *placeLikelihoodList, NSError *error){
         
-        //   NSLog(@"********PLACESCLIENT*********%@", _placesClient.description);
         if (error != nil) {
             NSLog(@"Pick Place error %@", [error localizedDescription]);
             return;
@@ -132,12 +118,9 @@
             
             if (place != nil) {
                 _currentLocation = place.coordinate;
-                //NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
             }
             else{
-                _currentLocation = place.coordinate;
-                //   NSLog(@"_currentLocation=%f %f", _currentLocation.longitude, _currentLocation.latitude);
-            }
+                _currentLocation = place.coordinate;            }
         }
         else{
             NSLog(@"**********************placeLikelihoodList is nil");
@@ -147,7 +130,6 @@
 - (IBAction)pickPlace:(id)sender {
     
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(_locationManager.location.coordinate.latitude, _locationManager.location.coordinate.longitude);
-    //   CLLocationCoordinate2D center = CLLocationCoordinate2DMake(42.3649315,-83.0751159);
     CLLocationCoordinate2D northEast = CLLocationCoordinate2DMake(center.latitude + 0.001,
                                                                   center.longitude + 0.001);
     CLLocationCoordinate2D southWest = CLLocationCoordinate2DMake(center.latitude - 0.001,
@@ -176,11 +158,9 @@
             NSString *newRating = [NSString stringWithFormat:@"%f", place.rating];
             newRestaurant.restaurantRating = newRating;
             
-            
             //convert WEBSITE from NSURL to NSString in order to store in NSDICTIONARY
             urlToString = [place.website absoluteString];
             newRestaurant.restaurantWebsite = urlToString;
-            
             
             NSString *formattedAddress = [[place.formattedAddress componentsSeparatedByString:@", "] componentsJoinedByString:@", "];
             
@@ -189,14 +169,7 @@
             newRestaurant.restaurantLatitude = [NSString stringWithFormat:@"%f", newRestaurant.location.latitude];
             newRestaurant.restaurantLongitude = [NSString stringWithFormat:@"%f", newRestaurant.location.longitude];
             
-            //            currentLatitude = [NSString stringWithFormat:@"%f", newRestaurant.location.latitude];
-            //            NSLog(@"CURRENT LATITUDE ======= @%@", currentLatitude);
-            
-            
-            
             NSDictionary *newRestaurantInfo = @{@"restaurant_name":newRestaurant.restaurantName, @"location":locationStringToPass, @"restaurant_phone":newRestaurant.restaurantPhoneNumber, @"restaurant_address":formattedAddress, @"restaurant_website":newRestaurant.restaurantWebsite,@"restaurant_rating":newRestaurant.restaurantRating, @"restaurant_types":newRestaurant.restaurantTypes};
-            
-            // NSLog(@"DICTIONARY=%@", newRestaurantInfo.description);
             
             FIRDatabaseReference *ref = [[FIRDatabase database] reference];
             FIRDatabaseReference *restaurantRef = [ref child:@"restaurants"].childByAutoId;
@@ -210,6 +183,7 @@
     [self.restaurantTableView reloadData];
 }
 
+
 - (NSString*) sanitizeString:(NSString *)output {
     // Create set of accepted characters
     NSMutableCharacterSet *acceptedCharacters = [[NSMutableCharacterSet alloc] init];
@@ -222,6 +196,7 @@
     output = [output lowercaseString];
     return output;
 }
+
 
 - (void)searchRestaurants {
     
@@ -265,8 +240,8 @@
     return numOfSections;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [_restaurantArray count];
     if ([_searchRestaurantArray count] == 0) {
         return [_restaurantArray count];
     } else {
@@ -274,20 +249,20 @@
     }
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // [self.restaurantTableView setContentInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     self.restaurantTableView.contentInset = UIEdgeInsetsMake(0, -15, 0, -30);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"restaurantCell" forIndexPath:indexPath];
-   cell.imageView.image = [UIImage imageNamed:@"r1.jpg"];
+    cell.imageView.image = [UIImage imageNamed:@"r1.jpg"];
     
     if ([_searchRestaurantArray count] == 0) {
-    Restaurant *restaurantInCell = [_restaurantArray objectAtIndex:indexPath.row];
-    tableView.rowHeight = 60;
+        Restaurant *restaurantInCell = [_restaurantArray objectAtIndex:indexPath.row];
+        tableView.rowHeight = 60;
     
-    cell.textLabel.text = restaurantInCell.restaurantName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", restaurantInCell.restaurantAddress];
-    cell.detailTextLabel.numberOfLines = 2;
+        cell.textLabel.text = restaurantInCell.restaurantName;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", restaurantInCell.restaurantAddress];
+        cell.detailTextLabel.numberOfLines = 2;
     }
     else{
         Restaurant *restaurantInCell = [_searchRestaurantArray objectAtIndex:indexPath.row];
@@ -311,7 +286,6 @@
     else{
     vc.currentRestaurant = [_searchRestaurantArray objectAtIndex:selectedIndex.row];
     }
-    
 }
 
 
