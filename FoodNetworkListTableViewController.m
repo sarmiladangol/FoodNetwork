@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *restaurantTableView;
 @property (strong, nonatomic) NSMutableArray *restaurantArray;
 @property (strong, nonatomic) NSMutableArray *searchRestaurantArray;
+@property (strong, nonatomic) NSMutableArray *temporaryRestaurantArray;
 @property (weak, nonatomic) IBOutlet UITextField *searchRestaurantTextField;
 
 @end
@@ -109,8 +110,10 @@
         //NSLog(@"!!!!!!!!!RESTAURANT ARRAY = %@", [[_restaurantArray objectAtIndex:0] restaurantName]);
         
         [self.restaurantTableView reloadData];
+       
     }];
 }
+
 
 -(void)getCurrentInfo{
     _placesClient = [GMSPlacesClient sharedClient];
@@ -202,6 +205,38 @@
     }];
 }
 
+- (IBAction)searchRestaurantButton:(UIButton *)sender {
+    [self searchRestaurants];
+    [self.restaurantTableView reloadData];
+}
+
+- (NSString*) sanitizeString:(NSString *)output {
+    // Create set of accepted characters
+    NSMutableCharacterSet *acceptedCharacters = [[NSMutableCharacterSet alloc] init];
+    [acceptedCharacters formUnionWithCharacterSet:[NSCharacterSet letterCharacterSet]];
+    [acceptedCharacters formUnionWithCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
+    [acceptedCharacters addCharactersInString:@" _-.!"];
+    
+    // Remove characters not in the set
+    output = [[output componentsSeparatedByCharactersInSet:[acceptedCharacters invertedSet]] componentsJoinedByString:@""];
+    output = [output lowercaseString];
+    return output;
+}
+
+- (void)searchRestaurants {
+    
+    NSString *searchRestaurantText;
+    _searchRestaurantArray = [[NSMutableArray alloc]init];
+    
+    searchRestaurantText =[_searchRestaurantTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    searchRestaurantText = [self sanitizeString:searchRestaurantText];
+    
+    for (Restaurant *restaurant in _restaurantArray) {
+        if ([[[self sanitizeString:restaurant.restaurantName] stringByReplacingOccurrencesOfString:@" " withString:@""] containsString:searchRestaurantText]) {
+            [_searchRestaurantArray addObject:restaurant];
+        }
+    }
+}
 
 
 #pragma mark - Table view data source
@@ -231,8 +266,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_restaurantArray count];
-    
+    //return [_restaurantArray count];
+    if ([_searchRestaurantArray count] == 0) {
+        return [_restaurantArray count];
+    } else {
+        return [_searchRestaurantArray count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -240,14 +279,22 @@
     // [self.restaurantTableView setContentInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     self.restaurantTableView.contentInset = UIEdgeInsetsMake(0, -15, 0, -30);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"restaurantCell" forIndexPath:indexPath];
+   cell.imageView.image = [UIImage imageNamed:@"r1.jpg"];
     
+    if ([_searchRestaurantArray count] == 0) {
     Restaurant *restaurantInCell = [_restaurantArray objectAtIndex:indexPath.row];
     tableView.rowHeight = 60;
     
     cell.textLabel.text = restaurantInCell.restaurantName;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", restaurantInCell.restaurantAddress];
     cell.detailTextLabel.numberOfLines = 2;
-    cell.imageView.image = [UIImage imageNamed:@"r1.jpg"];
+    }
+    else{
+        Restaurant *restaurantInCell = [_searchRestaurantArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = restaurantInCell.restaurantName;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", restaurantInCell.restaurantAddress];
+    }
+    
     [cell layoutIfNeeded];
     return cell;
 }
@@ -258,7 +305,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     FoodNetworkDetailsViewController *vc = [segue destinationViewController];
     NSIndexPath *selectedIndex = [self.restaurantTableView indexPathForSelectedRow];
-    vc.currentRestaurant = [_restaurantArray objectAtIndex:selectedIndex.row];
+    if ([_searchRestaurantArray count] == 0) {
+     vc.currentRestaurant = [_restaurantArray objectAtIndex:selectedIndex.row];
+    }
+    else{
+    vc.currentRestaurant = [_searchRestaurantArray objectAtIndex:selectedIndex.row];
+    }
+    
 }
 
 

@@ -161,12 +161,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaU-KM-Ler">
-                                <rect key="frame" x="20" y="79" width="219" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaU-KM-Ler">
+                                <rect key="frame" x="54" y="79" width="238" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyB-ig-AS0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyB-ig-AS0">
                                 <rect key="frame" x="20" y="177" width="280" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -203,23 +203,32 @@
                                     <outlet property="delegate" destination="1to-mn-Ik7" id="Gn3-gY-FBl"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0t-ad-FLA">
-                                <rect key="frame" x="256" y="78" width="44" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Filter">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Daj-Is-PM6">
+                                <rect key="frame" x="134" y="131" width="38" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0t-ad-FLA">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
+                                        <color key="backgroundColor" red="0.089068971574306488" green="0.72802752256393433" blue="0.25558197498321533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Filter">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchRestaurantButton:" destination="1to-mn-Ik7" eventType="touchUpInside" id="bq6-90-ljs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h0t-ad-FLA" firstAttribute="leading" secondItem="TaU-KM-Ler" secondAttribute="trailing" constant="20" id="DSW-ne-IXz"/>
+                            <constraint firstItem="Daj-Is-PM6" firstAttribute="centerX" secondItem="ezK-nR-rQf" secondAttribute="centerX" id="Fwx-G0-W0W"/>
                             <constraint firstItem="mwZ-wk-fki" firstAttribute="top" secondItem="UyB-ig-AS0" secondAttribute="bottom" constant="20" id="Gen-YH-wET"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UyB-ig-AS0" secondAttribute="leading" id="Jdz-5u-XbJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="TaU-KM-Ler" secondAttribute="leading" constant="-20" id="Tp9-ND-sdk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TaU-KM-Ler" secondAttribute="trailing" constant="20" id="f8R-oS-83H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UyB-ig-AS0" secondAttribute="trailing" constant="-15" id="hdd-as-M8c"/>
-                            <constraint firstItem="UyB-ig-AS0" firstAttribute="top" secondItem="TaU-KM-Ler" secondAttribute="bottom" constant="40" id="j5R-vZ-9a5"/>
                             <constraint firstItem="TaU-KM-Ler" firstAttribute="top" secondItem="jSM-XO-26C" secondAttribute="bottom" constant="20" id="w5T-2h-J5X"/>
-                            <constraint firstItem="h0t-ad-FLA" firstAttribute="top" secondItem="jSM-XO-26C" secondAttribute="bottom" constant="20" id="zdH-EG-60r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="miu-fl-U8c">
