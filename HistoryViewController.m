@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *totalAmountSpend;
 @property(weak, nonatomic) UILabel *budgetLabel;
 @property(weak, nonatomic) UILabel *totalDollarLabel;
+@property (weak, nonatomic) IBOutlet UITextField *remainingBalance;
 
 @end
 
@@ -52,6 +53,7 @@ NSInteger total;
 }
 
 -(void)getTotalAmountFromHistory{
+    NSLog(@"GET TOTAL AMOUNT FROM HISTORY");
     NSArray *titles = [_historyOfCheckinRestaurantArray valueForKey:@"checkedIn_restaurant_amountSpend"];
     NSUInteger count = [_historyOfCheckinRestaurantArray count];
     NSInteger sum = 0;
@@ -61,7 +63,18 @@ NSInteger total;
         if (sum == 0) {
             _totalAmountSpend.text = @"0.00";
         }
-        else{ _totalAmountSpend.text = [NSString stringWithFormat:@"%ld", sum];
+        else{ _totalAmountSpend.text = [NSString stringWithFormat:@"%ld", (long)sum];
+            
+            NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            
+            int number1 = [[formatter numberFromString:_budgetText.text] intValue];
+            int number2 = [[formatter numberFromString:_totalAmountSpend.text] intValue];
+            
+            NSString* result = [NSString stringWithFormat:@"%d", number1 - number2];
+            _remainingBalance.text = result;
+            NSLog(@"SUM 2 RAMIANING BALANCE =%@", _remainingBalance.text);
+            
             [self drawPiechart];
         }
     }
