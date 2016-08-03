@@ -651,10 +651,14 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [textLayer setHidden:!_showLabel];
     if(!_showLabel) return;
     NSString *label;
-    if(_showPercentage)
-        label = [NSString stringWithFormat:@"%0.0f", pieLayer.percentage*100];
-    else
+    if(_showPercentage){
+        label = [NSString stringWithFormat:@"LABEL= %0.0f", pieLayer.percentage*100];
+    NSLog(@"IF LABEL = %@",label);
+    }
+    else{
+        
         label = (pieLayer.text)?pieLayer.text:[NSString stringWithFormat:@"%0.0f", value];
+    }
     
     CGSize size = [label sizeWithFont:self.labelFont];
     
@@ -697,7 +701,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [layerHostingView setShowPercentage:NO];
     [layerHostingView setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];
     [layerHostingView setPieCenter:CGPointMake(layerHostingView.pieRadius+OFFSET, layerHostingView.pieRadius+OFFSET)];
-    [layerHostingView setLabelRadius:(layerHostingView.pieRadius*0.65)];
+    [layerHostingView setLabelRadius:(layerHostingView.pieRadius*0.55)];
     [layerHostingView setUserInteractionEnabled:YES];
     [layerHostingView setLabelShadowColor:[UIColor blackColor]];
   
@@ -754,7 +758,19 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [legendsScrollView addSubview:btn];
         
         UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(40, y, legendWidth-OFFSET*2, 25)];
-        lbl.text = [NSString stringWithFormat:@"%@",[dataArray objectAtIndex:i]];
+        //lbl.text = @"";
+        NSString *valu = [dataArray objectAtIndex:i];
+        NSUInteger index = [dataArray indexOfObject:valu];
+        
+        if (index == 0) {
+            
+            lbl.text = @"Budget";
+        }
+        else{
+            lbl.text = @"Total";
+        }
+        //lbl.text = [NSString stringWithFormat:@"%@",[dataArray objectAtIndex:i]];
+        NSLog(@"DATA ARRAY= %@", [dataArray objectAtIndex:i]);
         lbl.backgroundColor = [UIColor clearColor];
         [lbl setAdjustsFontSizeToFitWidth:YES];
         [legendsScrollView addSubview:lbl];

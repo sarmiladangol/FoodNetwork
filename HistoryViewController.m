@@ -73,7 +73,7 @@ NSInteger total;
             
             NSString* result = [NSString stringWithFormat:@"%d", number1 - number2];
             _remainingBalance.text = result;
-            NSLog(@"SUM 2 RAMIANING BALANCE =%@", _remainingBalance.text);
+            //NSLog(@"SUM 2 RAMIANING BALANCE =%@", _remainingBalance.text);
             
             [self drawPiechart];
         }
