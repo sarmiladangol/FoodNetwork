@@ -7,31 +7,60 @@
 //
 
 #import "loginViewController.h"
+@import Firebase;
 
 @interface loginViewController ()
-
 @end
 
 @implementation loginViewController
 
+NSString *newLoginPassword;
+
 - (void)viewDidLoad {
+    _invalidLogin.hidden = true;
+    
+    [self viewWillAppear:self];
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+// To hide BACK button in navigation bar
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)loginBtnPressed:(id)sender {
+    [self removeSpaceFromLoginPassword];
+    [self validateLoginInputs];
+    //[self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
-*/
+
+-(void)removeSpaceFromLoginPassword{
+    newLoginPassword = [_passwordLogin.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
+-(void)validateLoginInputs{
+    [[FIRAuth auth]signInWithEmail:_emailLogin.text password:newLoginPassword completion:^(FIRUser *user, NSError *error){
+        if(error){
+            _invalidLogin.hidden = false;
+        }
+        else{
+            _invalidLogin.hidden = true;
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        }
+    }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"loginSegue"])
+    {
+        FoodNetworkListTableViewController *vc = [segue destinationViewController];
+        NSLog(@"%@", vc.description);
+    }
+}
+
 
 @end

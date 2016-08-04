@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08E5877601C4A3106E4CEA7F /* libPods-FoodNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8623954BF7B9362C6F16B6C5 /* libPods-FoodNetwork.a */; };
+		C61881C31D358D3300F4CD86 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = C61881C21D358D3300F4CD86 /* UserProfile.m */; };
 		C63757301D341BB50082D607 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C637572F1D341BB50082D607 /* main.m */; };
 		C63757331D341BB50082D607 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757321D341BB50082D607 /* AppDelegate.m */; };
 		C63757361D341BB50082D607 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757351D341BB50082D607 /* ViewController.m */; };
@@ -15,18 +16,44 @@
 		C637573B1D341BB50082D607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C637573A1D341BB50082D607 /* Assets.xcassets */; };
 		C637573E1D341BB50082D607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C637573C1D341BB50082D607 /* LaunchScreen.storyboard */; };
 		C63757461D341BC70082D607 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C63757451D341BC70082D607 /* Podfile */; };
-		C63757491D34211F0082D607 /* FoodNetworkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757481D34211F0082D607 /* FoodNetworkListViewController.m */; };
 		C637575C1D3435E80082D607 /* signupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C637575B1D3435E80082D607 /* signupViewController.m */; };
 		C637575F1D3435F70082D607 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C637575E1D3435F70082D607 /* loginViewController.m */; };
 		C63757841D353DCF0082D607 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757831D353DCF0082D607 /* Restaurant.m */; };
-		C63757881D3557E70082D607 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C63757871D3557E70082D607 /* FoodNetworkDetailsViewController.m */; };
 		C637578A1D3572370082D607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C63757891D3572370082D607 /* GoogleService-Info.plist */; };
+		C64B57C01D4154D700AE88AD /* r1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57BD1D4154D700AE88AD /* r1.jpg */; };
+		C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64B57C91D4167B200AE88AD /* MapViewController.m */; };
+		C64B57CC1D42988B00AE88AD /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57CB1D42988B00AE88AD /* phone.png */; };
+		C64B57CE1D429C7100AE88AD /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = C64B57CD1D429C7100AE88AD /* name.png */; };
+		C64B57D01D429C8200AE88AD /* website.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C64B57CF1D429C8200AE88AD /* website.jpg */; };
+		C68111E61D4FE287001BD997 /* SavedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68111E51D4FE287001BD997 /* SavedViewController.m */; };
+		C6A013BF1D44F7A900D2888F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A013BD1D44F7A900D2888F /* menu.png */; };
+		C6A013C01D44F7A900D2888F /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A013BE1D44F7A900D2888F /* menu@2x.png */; };
+		C6A013F01D450DB400D2888F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A013EF1D450DB400D2888F /* SWRevealViewController.m */; };
+		C6A013F31D45100000D2888F /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A013F21D45100000D2888F /* SidebarViewController.m */; };
+		C6A014301D46482800D2888F /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A0142F1D46482800D2888F /* UserProfileViewController.m */; };
+		C6A014331D46679200D2888F /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A014321D46679200D2888F /* HistoryViewController.m */; };
+		C6A014361D46805F00D2888F /* SignoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A014351D46805F00D2888F /* SignoutViewController.m */; };
+		C6A014381D468D8800D2888F /* userProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A014371D468D8800D2888F /* userProfile.png */; };
+		C6A0143A1D46907300D2888F /* signout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6A014391D46907300D2888F /* signout.jpg */; };
+		C6C6EF871D512F17006D6C4C /* bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C6EF851D512F17006D6C4C /* bg2.jpg */; };
+		C6C6EF881D512F17006D6C4C /* bg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6C6EF861D512F17006D6C4C /* bg3.jpg */; };
+		C6EEE82D1D4910B900BBEB27 /* smily.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C6EEE82C1D4910B900BBEB27 /* smily.jpg */; };
+		C6EEE8331D492B5100BBEB27 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */; };
+		C6EEE8361D494A8900BBEB27 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8351D494A8900BBEB27 /* History.m */; };
+		C6EEE8381D4A4F4E00BBEB27 /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = C6EEE8371D4A4F4E00BBEB27 /* history.png */; };
+		C6EEE8401D4E75C300BBEB27 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE83F1D4E75C300BBEB27 /* DLPieChart.m */; };
+		C6EEE8421D4E7A8400BBEB27 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EEE8411D4E7A8400BBEB27 /* QuartzCore.framework */; };
+		C6EEE8451D4EA14000BBEB27 /* BudgetPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = C6EEE8441D4EA14000BBEB27 /* BudgetPlan.m */; };
+		C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */; };
+		C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16AB2587C818FD143829B588 /* Pods-FoodNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodNetwork/Pods-FoodNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		567DB2D13B3AC928576E9F09 /* Pods-FoodNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodNetwork/Pods-FoodNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		8623954BF7B9362C6F16B6C5 /* libPods-FoodNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61881C11D358D3300F4CD86 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		C61881C21D358D3300F4CD86 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		C637572B1D341BB50082D607 /* FoodNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C637572F1D341BB50082D607 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C63757311D341BB50082D607 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,17 +65,52 @@
 		C637573D1D341BB50082D607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C637573F1D341BB50082D607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C63757451D341BC70082D607 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C63757471D34211F0082D607 /* FoodNetworkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListViewController.h; sourceTree = "<group>"; };
-		C63757481D34211F0082D607 /* FoodNetworkListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListViewController.m; sourceTree = "<group>"; };
 		C637575A1D3435E80082D607 /* signupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signupViewController.h; sourceTree = "<group>"; };
 		C637575B1D3435E80082D607 /* signupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signupViewController.m; sourceTree = "<group>"; };
 		C637575D1D3435F70082D607 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		C637575E1D3435F70082D607 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		C63757821D353DCF0082D607 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		C63757831D353DCF0082D607 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
-		C63757861D3557E70082D607 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
-		C63757871D3557E70082D607 /* FoodNetworkDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkDetailsViewController.m; sourceTree = "<group>"; };
 		C63757891D3572370082D607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C64B57BD1D4154D700AE88AD /* r1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r1.jpg; sourceTree = "<group>"; };
+		C64B57C81D4167B200AE88AD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C64B57C91D4167B200AE88AD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		C64B57CB1D42988B00AE88AD /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		C64B57CD1D429C7100AE88AD /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = "<group>"; };
+		C64B57CF1D429C8200AE88AD /* website.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = website.jpg; sourceTree = "<group>"; };
+		C68111E41D4FE287001BD997 /* SavedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedViewController.h; sourceTree = "<group>"; };
+		C68111E51D4FE287001BD997 /* SavedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedViewController.m; sourceTree = "<group>"; };
+		C6A013BD1D44F7A900D2888F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		C6A013BE1D44F7A900D2888F /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		C6A013EE1D450DB400D2888F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		C6A013EF1D450DB400D2888F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		C6A013F11D45100000D2888F /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		C6A013F21D45100000D2888F /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		C6A0142E1D46482800D2888F /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		C6A0142F1D46482800D2888F /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		C6A014311D46679200D2888F /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		C6A014321D46679200D2888F /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		C6A014341D46805F00D2888F /* SignoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignoutViewController.h; sourceTree = "<group>"; };
+		C6A014351D46805F00D2888F /* SignoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignoutViewController.m; sourceTree = "<group>"; };
+		C6A014371D468D8800D2888F /* userProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userProfile.png; sourceTree = "<group>"; };
+		C6A014391D46907300D2888F /* signout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = signout.jpg; sourceTree = "<group>"; };
+		C6C6EF851D512F17006D6C4C /* bg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg2.jpg; path = ../../../../../../Downloads/bg2.jpg; sourceTree = "<group>"; };
+		C6C6EF861D512F17006D6C4C /* bg3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg3.jpg; path = ../../../../../../Downloads/bg3.jpg; sourceTree = "<group>"; };
+		C6EEE82C1D4910B900BBEB27 /* smily.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smily.jpg; sourceTree = "<group>"; };
+		C6EEE8311D492B5100BBEB27 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
+		C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
+		C6EEE8341D494A8900BBEB27 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
+		C6EEE8351D494A8900BBEB27 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
+		C6EEE8371D4A4F4E00BBEB27 /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
+		C6EEE83E1D4E75C300BBEB27 /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
+		C6EEE83F1D4E75C300BBEB27 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
+		C6EEE8411D4E7A8400BBEB27 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C6EEE8431D4EA14000BBEB27 /* BudgetPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetPlan.h; sourceTree = "<group>"; };
+		C6EEE8441D4EA14000BBEB27 /* BudgetPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetPlan.m; sourceTree = "<group>"; };
+		C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkListTableViewController.h; sourceTree = "<group>"; };
+		C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkListTableViewController.m; sourceTree = "<group>"; };
+		C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNetworkDetailsViewController.h; sourceTree = "<group>"; };
+		C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNetworkDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6EEE8421D4E7A8400BBEB27 /* QuartzCore.framework in Frameworks */,
 				08E5877601C4A3106E4CEA7F /* libPods-FoodNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +138,7 @@
 		AA3CDC6519F725C5D9A1303A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6EEE8411D4E7A8400BBEB27 /* QuartzCore.framework */,
 				8623954BF7B9362C6F16B6C5 /* libPods-FoodNetwork.a */,
 			);
 			name = Frameworks;
@@ -83,6 +147,7 @@
 		C63757221D341BB50082D607 = {
 			isa = PBXGroup;
 			children = (
+				C6EEE83D1D4E75C300BBEB27 /* Pie Chart Library */,
 				C63757371D341BB50082D607 /* Main.storyboard */,
 				C637573C1D341BB50082D607 /* LaunchScreen.storyboard */,
 				C63757451D341BC70082D607 /* Podfile */,
@@ -104,6 +169,7 @@
 		C637572D1D341BB50082D607 /* FoodNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				C6A013B61D44F73200D2888F /* SWRevealViewController */,
 				C63757891D3572370082D607 /* GoogleService-Info.plist */,
 				C63757851D353DE70082D607 /* Controllers */,
 				C637574A1D3421240082D607 /* Models */,
@@ -121,6 +187,18 @@
 		C637572E1D341BB50082D607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6C6EF851D512F17006D6C4C /* bg2.jpg */,
+				C6C6EF861D512F17006D6C4C /* bg3.jpg */,
+				C6EEE8371D4A4F4E00BBEB27 /* history.png */,
+				C6EEE82C1D4910B900BBEB27 /* smily.jpg */,
+				C6A014391D46907300D2888F /* signout.jpg */,
+				C6A014371D468D8800D2888F /* userProfile.png */,
+				C6A013BD1D44F7A900D2888F /* menu.png */,
+				C6A013BE1D44F7A900D2888F /* menu@2x.png */,
+				C64B57CF1D429C8200AE88AD /* website.jpg */,
+				C64B57CD1D429C7100AE88AD /* name.png */,
+				C64B57CB1D42988B00AE88AD /* phone.png */,
+				C64B57BD1D4154D700AE88AD /* r1.jpg */,
 				C637572F1D341BB50082D607 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -131,6 +209,12 @@
 			children = (
 				C63757821D353DCF0082D607 /* Restaurant.h */,
 				C63757831D353DCF0082D607 /* Restaurant.m */,
+				C6EEE8341D494A8900BBEB27 /* History.h */,
+				C6EEE8351D494A8900BBEB27 /* History.m */,
+				C61881C11D358D3300F4CD86 /* UserProfile.h */,
+				C61881C21D358D3300F4CD86 /* UserProfile.m */,
+				C6EEE8431D4EA14000BBEB27 /* BudgetPlan.h */,
+				C6EEE8441D4EA14000BBEB27 /* BudgetPlan.m */,
 			);
 			name = Models;
 			path = ..;
@@ -139,17 +223,50 @@
 		C63757851D353DE70082D607 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C63757471D34211F0082D607 /* FoodNetworkListViewController.h */,
 				C637575A1D3435E80082D607 /* signupViewController.h */,
+				C637575B1D3435E80082D607 /* signupViewController.m */,
+				C6A013F11D45100000D2888F /* SidebarViewController.h */,
+				C6A013F21D45100000D2888F /* SidebarViewController.m */,
 				C637575D1D3435F70082D607 /* loginViewController.h */,
 				C637575E1D3435F70082D607 /* loginViewController.m */,
-				C637575B1D3435E80082D607 /* signupViewController.m */,
-				C63757481D34211F0082D607 /* FoodNetworkListViewController.m */,
-				C63757861D3557E70082D607 /* FoodNetworkDetailsViewController.h */,
-				C63757871D3557E70082D607 /* FoodNetworkDetailsViewController.m */,
+				C6F6AB161D38087400C410C2 /* FoodNetworkListTableViewController.h */,
+				C6F6AB171D38087400C410C2 /* FoodNetworkListTableViewController.m */,
+				C6F6AB1F1D3D26C800C410C2 /* FoodNetworkDetailsViewController.h */,
+				C6F6AB201D3D26C800C410C2 /* FoodNetworkDetailsViewController.m */,
+				C64B57C81D4167B200AE88AD /* MapViewController.h */,
+				C64B57C91D4167B200AE88AD /* MapViewController.m */,
+				C6A0142E1D46482800D2888F /* UserProfileViewController.h */,
+				C6A0142F1D46482800D2888F /* UserProfileViewController.m */,
+				C6A014311D46679200D2888F /* HistoryViewController.h */,
+				C6A014321D46679200D2888F /* HistoryViewController.m */,
+				C6A014341D46805F00D2888F /* SignoutViewController.h */,
+				C6A014351D46805F00D2888F /* SignoutViewController.m */,
+				C6EEE8311D492B5100BBEB27 /* CheckInViewController.h */,
+				C6EEE8321D492B5100BBEB27 /* CheckInViewController.m */,
+				C68111E41D4FE287001BD997 /* SavedViewController.h */,
+				C68111E51D4FE287001BD997 /* SavedViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C6A013B61D44F73200D2888F /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C6A013EE1D450DB400D2888F /* SWRevealViewController.h */,
+				C6A013EF1D450DB400D2888F /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C6EEE83D1D4E75C300BBEB27 /* Pie Chart Library */ = {
+			isa = PBXGroup;
+			children = (
+				C6EEE83E1D4E75C300BBEB27 /* DLPieChart.h */,
+				C6EEE83F1D4E75C300BBEB27 /* DLPieChart.m */,
+			);
+			path = "Pie Chart Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +303,7 @@
 				TargetAttributes = {
 					C637572A1D341BB50082D607 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = TM264FVPQ8;
 					};
 				};
 			};
@@ -212,9 +330,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A013C01D44F7A900D2888F /* menu@2x.png in Resources */,
+				C6C6EF871D512F17006D6C4C /* bg2.jpg in Resources */,
+				C64B57D01D429C8200AE88AD /* website.jpg in Resources */,
+				C6A014381D468D8800D2888F /* userProfile.png in Resources */,
+				C64B57C01D4154D700AE88AD /* r1.jpg in Resources */,
+				C6EEE82D1D4910B900BBEB27 /* smily.jpg in Resources */,
 				C637573E1D341BB50082D607 /* LaunchScreen.storyboard in Resources */,
+				C6A0143A1D46907300D2888F /* signout.jpg in Resources */,
 				C637573B1D341BB50082D607 /* Assets.xcassets in Resources */,
+				C64B57CE1D429C7100AE88AD /* name.png in Resources */,
+				C6C6EF881D512F17006D6C4C /* bg3.jpg in Resources */,
+				C64B57CC1D42988B00AE88AD /* phone.png in Resources */,
+				C6A013BF1D44F7A900D2888F /* menu.png in Resources */,
 				C637578A1D3572370082D607 /* GoogleService-Info.plist in Resources */,
+				C6EEE8381D4A4F4E00BBEB27 /* history.png in Resources */,
 				C63757461D341BC70082D607 /* Podfile in Resources */,
 				C63757391D341BB50082D607 /* Main.storyboard in Resources */,
 			);
@@ -277,12 +407,24 @@
 			files = (
 				C63757361D341BB50082D607 /* ViewController.m in Sources */,
 				C63757841D353DCF0082D607 /* Restaurant.m in Sources */,
+				C6F6AB211D3D26C800C410C2 /* FoodNetworkDetailsViewController.m in Sources */,
+				C6A013F31D45100000D2888F /* SidebarViewController.m in Sources */,
+				C61881C31D358D3300F4CD86 /* UserProfile.m in Sources */,
+				C6A014331D46679200D2888F /* HistoryViewController.m in Sources */,
+				C6EEE8331D492B5100BBEB27 /* CheckInViewController.m in Sources */,
 				C63757331D341BB50082D607 /* AppDelegate.m in Sources */,
+				C6A014361D46805F00D2888F /* SignoutViewController.m in Sources */,
+				C6EEE8401D4E75C300BBEB27 /* DLPieChart.m in Sources */,
+				C6EEE8451D4EA14000BBEB27 /* BudgetPlan.m in Sources */,
+				C6EEE8361D494A8900BBEB27 /* History.m in Sources */,
 				C63757301D341BB50082D607 /* main.m in Sources */,
-				C63757881D3557E70082D607 /* FoodNetworkDetailsViewController.m in Sources */,
+				C6F6AB181D38087400C410C2 /* FoodNetworkListTableViewController.m in Sources */,
+				C68111E61D4FE287001BD997 /* SavedViewController.m in Sources */,
+				C64B57CA1D4167B200AE88AD /* MapViewController.m in Sources */,
+				C6A013F01D450DB400D2888F /* SWRevealViewController.m in Sources */,
+				C6A014301D46482800D2888F /* UserProfileViewController.m in Sources */,
 				C637575C1D3435E80082D607 /* signupViewController.m in Sources */,
 				C637575F1D3435F70082D607 /* loginViewController.m in Sources */,
-				C63757491D34211F0082D607 /* FoodNetworkListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,10 +539,13 @@
 			baseConfigurationReference = 567DB2D13B3AC928576E9F09 /* Pods-FoodNetwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.FoodNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -409,10 +554,13 @@
 			baseConfigurationReference = 16AB2587C818FD143829B588 /* Pods-FoodNetwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.FoodNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
