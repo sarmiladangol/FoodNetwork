@@ -12,7 +12,7 @@
 #import <MapKit/MapKit.h>
 #import "SWRevealViewController.h"
 
-@interface FoodNetworkListTableViewController : UIViewController <UITableViewDataSource, UITabBarDelegate>
+@interface FoodNetworkListTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) CLLocationCoordinate2D currentLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
