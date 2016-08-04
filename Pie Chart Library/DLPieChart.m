@@ -758,7 +758,6 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [legendsScrollView addSubview:btn];
         
         UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(40, y, legendWidth-OFFSET*2, 25)];
-        //lbl.text = @"";
         NSString *valu = [dataArray objectAtIndex:i];
         NSUInteger index = [dataArray indexOfObject:valu];
         
@@ -770,7 +769,6 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             lbl.text = @"Total";
         }
         //lbl.text = [NSString stringWithFormat:@"%@",[dataArray objectAtIndex:i]];
-        NSLog(@"DATA ARRAY= %@", [dataArray objectAtIndex:i]);
         lbl.backgroundColor = [UIColor clearColor];
         [lbl setAdjustsFontSizeToFitWidth:YES];
         [legendsScrollView addSubview:lbl];
